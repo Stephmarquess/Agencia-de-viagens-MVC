@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+  <title>GoTour - Home </title>
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-lg">
+      <div id="local" class="col text-center">
+        <i class="bi bi-geo-alt"></i>
+        <p>Praça Roberto Gomes Pedrosa, s/n - Jardim Leonor - São Paulo - SP</p>
+    </div>
+    </nav>
+</header>
+    
+<main class="container">
+
+<p class="fs-1 text-center mt-3 mb-3">Cadastro de Cliente </p>
+
+<div class="row shadow p-5">
+
+<form th:action="@{/cliente/cadastrar}" th:object="${cliente}" method="post">
+<div class="mb-3 mt-3">
+    <label for="nome" class="form-label fs-5"> Nome Completo</label>
+    <input type="text" class="form-control" id="nomeCompleto" placeholder="Digite o seu nome completo" th:field="*{nomeCliente}">
+  </div>
+  <div class="mb-3">
+    <label for="cpf" class="form-label fs-5">CPF</label>
+    <input type="number" class="form-control" id="cpfCliente" placeholder="Digite o seu cpf" th:field="*{cnpj}">
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label fs-5">E-mail</label>
+    <input type="email" class="form-control" id="email" placeholder="Digite o seu melhor e-mail" th:field="*{email}">
+  </div>
+  <div class="mb-3">
+    <label for="telefone" class="form-label fs-5">Telefone</label>
+    <input type="texto" class="form-control" id="telefone" placeholder="Digite seu telefone" th:field="*{telefone}">
+  </div>
+  <div class="mb-3">
+    <label for="endereco" class="form-label fs-5">Endereço (Rua, nº , bairro, cidade, UF)</label>
+    <input type="text" class="form-control" id="endereco" placeholder="Digite o seu endereço">
+  </div>
+  <div class="mb-3">
+    <label for="senha" class="form-label fs-5">Senha</label>
+    <input type="password" class="form-control" id="senha" placeholder="Digite sua senha">
+  </div>
+
+  <div class="d-flex justify-content-center mb-5 mt-5">
+  <button class="btn btn-primary">Cadastrar</button>
+</div>
+</form>
+</div>
+</main>
+
+<footer class="row row-cols-1 row-cols-md-3 g-3 mt-5 container-fluid" id="rodape">
+    <div class="col">
+      <img id="logo" src="./IMAGENS/logo.png" /><span id="logotxt"> <b>G</b>o<b>T</b>our</span>
+    </div>
+    <div id="social" class="col">
+      <img src="./IMAGENS/instagram.png">
+      <img src="./IMAGENS/facebook_174848.png">
+
+    </div>
+
+    <div id="local" class="col">
+      <img src="./IMAGENS/pinodelocalizacao.png" alt="ícone de localização da empresa">
+      <p>Praça Roberto Gomes Pedrosa, s/n - Jardim Leonor - São Paulo - SP</p>
+    </div>
+  </footer>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+crossorigin="anonymous"></script>
+</body>
+
+</html>

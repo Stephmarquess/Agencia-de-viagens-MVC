@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+  <title>GoTour - Home </title>
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <img id="logo" th:src="@{/img/logo.png}" /> <span id="logotxt"> <b>G</b>o<b>T</b>our</span>                
+            <div class="me-5">
+                <p class="fs-3"> Área Staff </p>
+            </div>
+        </div>
+    </nav>
+</header>
+    
+      <main class="container">
+        <p class="fs-1 text-center mt-5"> Atualizar Destino </p>
+        <div class="d-flex mt-3 shadow p-3 flex-column p-5">  
+            
+        <form th:action="@{/destino/editarDestino/{id}(id=${destino.id})}" th:object="${destino}" method="post">
+            <div>
+                <label for="id" class="form-label fs-5"> ID </label>
+                <input class="form-control mt-1" type="text" id="id" th:field="*{id}" th:readonly="readonly" disabled />
+            </div>
+            <div class=" mt-3">
+                <label for="nome" class="form-label fs-5"> Nome Destino </label>
+                <input class="form-control mt-1" type="text" id="nome" th:field="*{nomeDestino}" />
+            </div>
+            <div class=" mt-3">
+                <label for="descricaoDestino" class="form-label fs-5"> Descrição do Destino </label>
+                <input class="form-control mt-1" type="text" id="descricaoDestino" th:field="*{descricaoDestino}" autocomplete="off" minlength="14" maxlength="14">
+            </div>
+        
+            <div class="d-flex justify-content-center mt-5">
+                <button class="btn btn-success" type="submit"> Salvar </button>
+            </div>
+        </form>
+        </div>
+        
+            <div class="d-flex mt-5 justify-content-center">
+        <a class="btn btn-success" th:href="@{/usuario/profile/{id}(id=${usuario.id})}"><i class="bi bi-arrow-left"></i> Voltar </a>
+        </div>
+        
+        </main>
+        <footer class="row row-cols-1 row-cols-md-3 g-3 mt-5 container-fluid" id="rodape">
+          <div class="col">
+              <img id="logo" th:src="@{/img/logofooter.png}" /><span id="logotxt"> <b>G</b>o<b>T</b>our</span>
+          </div>
+          <div id="social" class="col">
+              <img th:src="@{/img/instagram.png}">
+              <img th:src="@{/img/facebook_174848.png}" >
+      
+          </div>
+      
+          <div id="local" class="col text-center">
+            <i class="bi bi-geo-alt"></i>
+            <p>Praça Roberto Gomes Pedrosa, s/n - Jardim Leonor - São Paulo - SP</p>
+        </div>
+      </footer>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+crossorigin="anonymous"></script>
+</body>
+
+</html>
