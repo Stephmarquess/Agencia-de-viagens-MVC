@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 import com.agencia.gotour.model.Cliente;
 import com.agencia.gotour.services.ClienteServices;
@@ -22,72 +22,58 @@ import com.agencia.gotour.services.ClienteServices;
 		@Autowired
 		private ClienteServices clienteServices;
 		
-
-		@GetMapping("/listarCliente")
-		public String areaCliente (@PathVariable Long id, Model model) {
-		List<Cliente> listarClientes =  clienteServices.buscarClientes();		
-		model.addAttribute("clientes", listarClientes);
-		return "listarCliente";
-		}
-							
+		@GetMapping
+		public String areaCliente() {			
+			return "areaCliente";
+			}
 
 		@GetMapping("/cadastro")
-		public String cadastroCliente(Model model) {
+		public String cadastroClienteform(Model model) {
 		Cliente cliente = new Cliente();
 		model.addAttribute("cliente", cliente);
 		return "cadastroCliente";
 		}
 			
 
-		@PostMapping("/cadastrar")
+		@PostMapping("/cadastrar")		
 		public String cadastrarCliente(@ModelAttribute("cliente") Cliente cliente) {
-		clienteServices.salvarCliente(cliente);
-							
-		return "areaCliente";
+		clienteServices.salvarCliente(cliente);							
+		return "listarCliente";
+		}			
+		
+
+		@GetMapping("/listarCliente")
+		public String areaCliente (Model model) {
+		List<Cliente> listarClientes =  clienteServices.buscarClientes();		
+		model.addAttribute("clientes", listarClientes);
+		return "listarCliente";
 		}
-			
-
-// PÁGINA DE ATUALIZAR RENDERIZANDO LISTA EM UM SELECT 
 		
-		@GetMapping("/selecionarCliente")
-	    public String selecionarCliente(Model model) {
-		List<Cliente> listaDeClientes =  clienteServices.buscarClientes();
+		@GetMapping("/detalharCliente/{id}")
+		public String detalharCliente (@PathVariable (value= "id") Long id, Model model) {
+		Cliente clienteLocalizado =  clienteServices.buscarClienteporId(id);		
+		model.addAttribute("cliente", clienteLocalizado);
+		return "detalhesClientes";
+		}
 
-	    model.addAttribute("clientes", listaDeClientes);
-
-	        return "selecionarCliente";
-	    }
-
-	    @PostMapping("/atualizarCliente")	    
-		
-	    public String atualizarClienteform(@RequestParam Long idCliente, Model model) {
-				
-				Cliente cliente = clienteServices.buscarClienteporId(idCliente);
-				model.addAttribute("cliente", cliente);
-				return "redirect:/editarCliente";   				
-	    }
-	    
-		
-// FIM DA PÁGINA 
-		
-//		@GetMapping("/atualizarCliente/{id}")
-//		public String atualizarClienteform(@PathVariable Long id, Model model) {
-//			Cliente cliente = clienteServices.buscarClienteporId(id);
-//			model.addAttribute("cliente", cliente);
-//			return "editarCliente";
-//		}
+		@GetMapping("/editarCliente/{id}")
+		public String formEditarCliente(@PathVariable Long id, Model model) {
+			Cliente cliente = clienteServices.buscarClienteporId(id);
+			model.addAttribute("cliente", cliente);
+			return "editarCliente";
+		}
 		
 		@PostMapping("/editarCliente/{id}")
-		public String editarUsuario(@PathVariable Long id, @ModelAttribute("cliente") Cliente cliente) {		
-			clienteServices.atualizarCliente(id, cliente);
-			return "areaCliente";
+		public String editarCliente(@PathVariable Long id, @ModelAttribute("cliente") Cliente cliente) {		
+			clienteServices.atualizarCliente(id, cliente);			
+			return "detalhesClientes";
 		}
 		
 
-		@GetMapping("/deletar/{id}")
+		@GetMapping("/deletarCliente/{id}")
 		public String deletarCliente(@PathVariable Long id) {
 			clienteServices.deletarCliente(id);
-			return "areaCliente";
+			return "listarCliente";
 		}
 	
 	

@@ -29,7 +29,7 @@
 
 <div class="row shadow p-5">
 
-<form th:action="@{/destino/cadastro}" th:object="${destino}" method="post">
+<form th:action="@{/destino/cadastrar}" th:object="${destino}" method="post">
 <div class="mb-3 mt-3">
     <label for="nome" class="form-label fs-5"> Nome Destino </label>
     <input type="text" class="form-control" id="nomeDestino" placeholder="Nome do Destino" th:field="*{nomeDestino}">

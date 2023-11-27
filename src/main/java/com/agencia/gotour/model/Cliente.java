@@ -26,16 +26,14 @@ import jakarta.persistence.Table;
 		@Column(nullable = false, length = 255)
 		private String nomeCliente;
 
-		@Column(nullable = false, length = 14, unique = true)
+		@Column(nullable = false, length = 14)
 		private String cpf;
 		
-		@Column(nullable = false, length = 80, unique = true)
+		@Column(nullable = false, length = 80)
 	    private String email;
+
 		
-		@Column(nullable = false, length = 80, unique = true)
-	    private String telefone;
-		
-		@Column(nullable = false, length = 255, unique = true)
+		@Column(nullable = false, length = 255)
 	    private String endereco;
 		
 		@Column(nullable = false, length = 50)
@@ -49,14 +47,14 @@ import jakarta.persistence.Table;
 	    
 	    		
 
-		public Cliente(Long id, String nomeCliente, String cpf, String email, String telefone, String endereco,
+		public Cliente(Long id, String nomeCliente, String cpf, String email, String endereco,
 				String senha) {
 		
 			this.id = id;
 			this.nomeCliente = nomeCliente;
 			this.cpf = cpf;
 			this.email = email;
-			this.telefone = telefone;
+
 			this.endereco = endereco;
 			this.senha = senha;
 		}
@@ -97,13 +95,6 @@ import jakarta.persistence.Table;
 			this.email = email;
 		}
 
-		public String getTelefone() {
-			return telefone;
-		}
-
-		public void setTelefone(String telefone) {
-			this.telefone = telefone;
-		}
 
 		public String getEndereco() {
 			return endereco;
