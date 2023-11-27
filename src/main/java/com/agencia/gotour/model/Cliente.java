@@ -1,10 +1,15 @@
 package com.agencia.gotour.model;
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 
@@ -36,6 +41,13 @@ import jakarta.persistence.Table;
 		@Column(nullable = false, length = 50)
 		private String senha;
 		
+		
+	    @OneToMany(cascade = CascadeType.ALL)
+	    @JoinColumn(name = "idCliente")
+	    private List<Reserva> reservas;
+		
+	    
+	    		
 
 		public Cliente(Long id, String nomeCliente, String cpf, String email, String telefone, String endereco,
 				String senha) {
@@ -107,6 +119,14 @@ import jakarta.persistence.Table;
 
 		public void setSenha(String senha) {
 			this.senha = senha;
+		}
+
+		public List<Reserva> getReservas() {
+			return reservas;
+		}
+
+		public void setReservas(List<Reserva> reservas) {
+			this.reservas = reservas;
 		}	
 				
 		

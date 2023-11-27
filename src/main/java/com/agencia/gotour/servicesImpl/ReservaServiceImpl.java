@@ -9,7 +9,7 @@ import com.agencia.gotour.model.Reserva;
 import com.agencia.gotour.repositories.ReservaRepository;
 import com.agencia.gotour.services.ReservaServices;
 
-import jakarta.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 
 	@Service
 	public class ReservaServiceImpl implements ReservaServices {
@@ -23,6 +23,7 @@ import jakarta.transaction.Transactional;
 		}
 
 		@Override
+		@Transactional(readOnly = true)
 		public Reserva buscarReservaporId(Long id) {
 			return reservaRepository.findById(id).orElse(null);
 		}
