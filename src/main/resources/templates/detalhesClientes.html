@@ -18,57 +18,40 @@
                 <i class="bi bi-globe-americas"></i>
                 <ul class="nav nav-underline justify-content-center gap-5">
                     <li class="nav-item">
-                      <a class="nav-link active fs-5" aria-current="page" href="#">Destino</a>
+                      <a class="nav-link active fs-5" aria-current="page" href="#">Clientes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fs-5" th:href="@{/reserva/}">Reserva</a>
+                        <a class="nav-link fs-5" th:href="@{/reserva/areaReserva/}">Reserva</a>
                       </li>
                       <li class="nav-item">
-                        <a class=" nav-link fs-5" th:href="@{/cliente/}">Clientes</a>
+                        <a class=" nav-link fs-5" th:href="@{/cliente/areaCliente/}">Destino</a>
                       </li>
 
                   </ul>
                   <div class="me-2">
-                    <p class="fs-3"> Área Reserva</p>
+                    <p class="fs-3"> Área Staff </p>
                 </div>
             </div>            
         </nav>
     </header>
 
     <main class="container">
-        <p class="fs-1 text-center mt-5"> Informações do Destino </p>
-        <div class="table-responsive">
- <table class="table table-striped mt-3">
-                <thead class="thead-dark">
-              <tr>
-  
-                  <th>ID</th>
-                  <th>Nome</th>
-                  <th>Descrição</th>
-                  <th class="text-center">Opções</th>                  
-              </tr>
-          </thead>
-          <tbody>	      
-              <tr th:each="destino: ${destino}">
-                  
-                  <td th:text="${destino.id}"></td>
-                  <td th:text="${destino.nomeDestino}"></td>
-                  <td th:text="${destino.descricaoDestino}"></td>                  
-                  
-            <td class="d-flex justify-content-center gap-3">
-              <a th:href="@{/destino/editarDestino/{id}(id=${destino.id})}"><i class="bi bi-pencil-square"></i>  </a>
-              <a th:href="@{/destino/deletarDestino/{id}(id=${destino.id})}"> <i class="bi bi-trash3"></i> </a>
-          </td>
+        <p class="fs-1 text-center mt-5"> Informações do Cliente </p>
+		
+		<div class="container shadow" th:if="${cliente != null}"> 
 
-              </tr>
-              </tbody>
-            </div> 
-          </table> 
-       
-        <div class="mt-5 d-flex justify-content-center">
-       	<a class="btn btn-primary"th:href="@{/destino/}"><i class="bi bi-arrow-left"></i> Voltar </a>
-       	</div>  
-    
+	<ul class="list-group list-group-flush" th:each="cliente : ${cliente}">
+  <li class="list-group-item fs-5"><strong>Id:</strong> <span th:text="${cliente.id}"></span></li>
+  <li class="list-group-item fs-5"><strong>Nome:</strong> <span th:text="${cliente.nomeCliente}"></span></li>
+  <li class="list-group-item fs-5"><strong>CPF:</strong> <span th:text="${cliente.cpf}"> </li>
+  <li class="list-group-item fs-5"><strong>E-mail:</strong> <span th:text="${cliente.email}"></li>
+  <li class="list-group-item fs-5"><strong>Endereço:</strong> <span th:text="${cliente.endereco}"></li>
+  
+</ul>	
+		</div>
+   <div class="d-flex justify-content-center mt-5">    
+    <a class="btn btn-primary"th:href="@{/cliente/listarCliente}"><i class="bi bi-arrow-left"></i> Voltar </a>
+    </div>
     </main>
 
     <footer class="row row-cols-1 row-cols-md-3 g-3 mt-5 container-fluid" id="rodape">

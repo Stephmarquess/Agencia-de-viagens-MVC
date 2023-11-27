@@ -18,7 +18,7 @@
                 <i class="bi bi-globe-americas"></i>
                 <ul class="nav nav-underline justify-content-center gap-5">
                     <li class="nav-item">
-                        <a class="nav-link active fs-5" aria-current="page" th:href="#">Reserva</a>
+                        <a class="nav-link active fs-5" aria-current="page" href="#">Reserva</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link fs-5" th:href="@{/destino/areaDestino/}">Destino</a>
@@ -46,10 +46,10 @@
     <div class="row">
         <p class="fs-2 mt-5"> Atualizar Cliente </p>
 
-        <form action="/cliente/atualizarCliente" method="post">
+        <form action="@{/{id}(id=${cliente.id})}" method="post">
             <select class="form-select" name="selecionarCliente">
                 <option selected>Selecione o cliente que deseja atualizar</option>
-                <option th:each="clientes : ${clientes}" th:value="${clientes.id}" th:text="${clientes.nome}"></option>
+                <option th:each="clientes : ${clientes}" th:value="${clientes.id}" th:text="${clientes.nomeCliente}"></option>
             </select>
             <div class="d-flex justify-content-center mt-5">
             <button class="btn btn-primary" type="submit">Enviar</button>

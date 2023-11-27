@@ -25,11 +25,11 @@ public class DestinoController {
 	private DestinoServices destinoServices;
 	
 
-	@GetMapping("/areaDestino")
-	public String areaDestino (@PathVariable Long id, Model model) {
+	@GetMapping("/")
+	public String areaDestino (Model model) {
 	List<Destino> listarDestinos =  destinoServices.buscarDestinos();		
 	model.addAttribute("destinos", listarDestinos);
-	return "areaReserva";
+	return "areaDestino";
 	}
 						
 
@@ -43,11 +43,17 @@ public class DestinoController {
 
 	@PostMapping("/cadastrar")
 	public String cadastrarDestino(@ModelAttribute("destino") Destino destino) {
-	destinoServices.salvarDestino(destino);
-						
-	return "areaDestino";
+	destinoServices.salvarDestino(destino);						
+	return "listarDestino";
 	}
-		
+	
+	
+	@GetMapping("/listarDestino")
+	public String listarDestino( Model model) {
+		List<Destino> destinos = destinoServices.buscarDestinos();		
+		model.addAttribute("destino", destinos);
+		return "listarDestino";
+	}
 
 	@GetMapping("/editar/{id}")
 	public String editarDestinoform(@PathVariable Long id, Model model) {
@@ -63,10 +69,10 @@ public class DestinoController {
 	}
 	
 
-	@GetMapping("/deletar/{id}")
+	@GetMapping("/deletarDestino/{id}")
 	public String deletarDestino(@PathVariable Long id) {
 		destinoServices.deletarDestino(id);
-		return "areaDestino";
+		return "deletadoSucesso";
 	}
 
 
