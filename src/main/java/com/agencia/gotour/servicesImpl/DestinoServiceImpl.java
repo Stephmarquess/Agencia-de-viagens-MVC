@@ -9,7 +9,7 @@ import com.agencia.gotour.model.Destino;
 import com.agencia.gotour.repositories.DestinoRepository;
 import com.agencia.gotour.services.DestinoServices;
 
-import jakarta.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class DestinoServiceImpl implements DestinoServices {
@@ -23,7 +23,8 @@ public class DestinoServiceImpl implements DestinoServices {
 	}
 
 	
-	@Autowired	
+	@Override	
+	@Transactional(readOnly = true)
 	public Destino buscarDestinoporId(Long destinoId) {
 		return destinoRepository.findById(destinoId).orElse(null);
 	}

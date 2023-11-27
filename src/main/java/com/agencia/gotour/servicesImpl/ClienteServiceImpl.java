@@ -9,7 +9,8 @@ import com.agencia.gotour.model.Cliente;
 import com.agencia.gotour.repositories.ClienteRepository;
 import com.agencia.gotour.services.ClienteServices;
 
-import jakarta.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
+
 
 @Service
 public class ClienteServiceImpl implements ClienteServices {
@@ -23,9 +24,10 @@ public class ClienteServiceImpl implements ClienteServices {
 	}
 
 	
-	@Autowired	
-	public Cliente buscarClienteporId(Long clienteId) {
-		return clienteRepository.findById(clienteId).orElse(null);
+	@Override
+	@Transactional(readOnly = true)
+	public Cliente buscarClienteporId(Long id) {
+		return clienteRepository.findById(id).orElse(null);
 	}
 
 	@Override

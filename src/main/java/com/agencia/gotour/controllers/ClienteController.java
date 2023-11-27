@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.agencia.gotour.model.Cliente;
 import com.agencia.gotour.services.ClienteServices;
@@ -22,11 +23,11 @@ import com.agencia.gotour.services.ClienteServices;
 		private ClienteServices clienteServices;
 		
 
-		@GetMapping("/areaCliente")
+		@GetMapping("/listarCliente")
 		public String areaCliente (@PathVariable Long id, Model model) {
 		List<Cliente> listarClientes =  clienteServices.buscarClientes();		
 		model.addAttribute("clientes", listarClientes);
-		return "areaCliente";
+		return "listarCliente";
 		}
 							
 
@@ -46,12 +47,35 @@ import com.agencia.gotour.services.ClienteServices;
 		}
 			
 
-		@GetMapping("/editar/{id}")
-		public String editarClienteform(@PathVariable Long id, Model model) {
-			Cliente cliente = clienteServices.buscarClienteporId(id);
-			model.addAttribute("cliente", cliente);
-			return "editarCliente";
-		}
+// PÁGINA DE ATUALIZAR RENDERIZANDO LISTA EM UM SELECT 
+		
+		@GetMapping("/selecionarCliente")
+	    public String selecionarCliente(Model model) {
+		List<Cliente> listaDeClientes =  clienteServices.buscarClientes();
+
+	    model.addAttribute("clientes", listaDeClientes);
+
+	        return "selecionarCliente";
+	    }
+
+	    @PostMapping("/atualizarCliente")	    
+		
+	    public String atualizarClienteform(@RequestParam Long idCliente, Model model) {
+				
+				Cliente cliente = clienteServices.buscarClienteporId(idCliente);
+				model.addAttribute("cliente", cliente);
+				return "redirect:/editarCliente";   				
+	    }
+	    
+		
+// FIM DA PÁGINA 
+		
+//		@GetMapping("/atualizarCliente/{id}")
+//		public String atualizarClienteform(@PathVariable Long id, Model model) {
+//			Cliente cliente = clienteServices.buscarClienteporId(id);
+//			model.addAttribute("cliente", cliente);
+//			return "editarCliente";
+//		}
 		
 		@PostMapping("/editarCliente/{id}")
 		public String editarUsuario(@PathVariable Long id, @ModelAttribute("cliente") Cliente cliente) {		
