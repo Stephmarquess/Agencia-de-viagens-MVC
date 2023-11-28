@@ -25,7 +25,7 @@ public class DestinoController {
 	private DestinoServices destinoServices;
 	
 
-	@GetMapping("/")
+	@GetMapping
 	public String areaDestino (Model model) {
 	List<Destino> listarDestinos =  destinoServices.buscarDestinos();		
 	model.addAttribute("destinos", listarDestinos);
@@ -55,7 +55,7 @@ public class DestinoController {
 		return "listarDestino";
 	}
 
-	@GetMapping("/editar/{id}")
+	@GetMapping("/editarDestino/{id}")
 	public String editarDestinoform(@PathVariable Long id, Model model) {
 		Destino destino = destinoServices.buscarDestinoporId(id);
 		model.addAttribute("destino", destino);

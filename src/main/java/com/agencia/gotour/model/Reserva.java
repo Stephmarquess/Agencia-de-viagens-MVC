@@ -1,5 +1,7 @@
 package com.agencia.gotour.model;
 
+
+import java.time.LocalDate;
 import java.util.Date;
 
 import jakarta.persistence.Column;
@@ -26,10 +28,10 @@ import jakarta.persistence.Table;
 		private String descricaoReserva;
 
 		@Column(nullable = false)
-		private Date dataIda;
+		private LocalDate dataIda;
 		
 		@Column(nullable = false)
-		private Date dataVolta;
+		private LocalDate dataVolta;
 		
 		@Column(nullable = false)
 		private Double valor;
@@ -40,13 +42,25 @@ import jakarta.persistence.Table;
 	    @ManyToOne
 	    @JoinColumn(name = "idCliente")
 	    private Cliente cliente;
+	    
+	    @ManyToOne
+	    @JoinColumn(name = "idDestino")
+	    private Destino destino;
 			
+
+		public Destino getDestino() {
+			return destino;
+		}
+
+		public void setDestino(Destino destino) {
+			this.destino = destino;
+		}
 
 		public Reserva() {
 			super();
 		}
 
-		public Reserva(Long id, String descricaoReserva, Date dataIda, Date dataVolta, Double valor,
+		public Reserva(Long id, String descricaoReserva, LocalDate dataIda, LocalDate dataVolta, Double valor,
 				String tipoPagamento) {
 
 			this.id = id;
@@ -73,19 +87,19 @@ import jakarta.persistence.Table;
 			this.descricaoReserva = descricaoReserva;
 		}
 
-		public Date getDataIda() {
+		public LocalDate getDataIda() {
 			return dataIda;
 		}
 
-		public void setDataIda(Date dataIda) {
+		public void setDataIda(LocalDate dataIda) {
 			this.dataIda = dataIda;
 		}
 
-		public Date getDataVolta() {
+		public LocalDate getDataVolta() {
 			return dataVolta;
 		}
 
-		public void setDataVolta(Date dataVolta) {
+		public void setDataVolta(LocalDate dataVolta) {
 			this.dataVolta = dataVolta;
 		}
 

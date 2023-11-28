@@ -39,13 +39,8 @@
           </ul>
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+            <button class="btn btn-outline-success"><i class="bi bi-search"></i></button>
           </form>
-          <div class="me-3 ms-5">
-			  <a href="./login.html">
-			  <button class="btn btn-outline-primary"> Área Staff </button>
-			  </a>
-          </div>
         </div>
       </div>
     </nav>
@@ -53,70 +48,28 @@
 
   <main class="container">
 
-    <section class="mt-5" id="inicio">
+    <section class="p-5 mt-5" id="inicio">
 
-      <h2 class="mt-5">Onde você quer se aventurar?</h2>
-      <div class="passagem">
-        <input class="form-control mt-3" type="text" name="local" id="local" placeholder="Pesquise um destino"><br>
-        <form>
-          <div class="form-align">
-            <label> Data de Ida </label>
-            <input class="input-control" type="date" name="dataIda" id="dataIda">
-          </div>
-
-          <div class="form-align">
-            <label> Data de Volta </label>
-            <input class="input-control" type="date" name="dataVolta" id="dataVolta"><br>
-          </div>
-        </form>
-      </div>
-        <button class="btn btn-primary mt-5 mb-5" type="submit">Buscar</button>
+      <h2 class="text-center mt-5">Login</h2>
+      
+        
+			<div class="passagem d-flex flex-column mt-3">
+			<label class="form-label">E-mail</labelclass="form-label">
+			<input class="form-control mt-1" type="email">
+			<label class="form-label mt-3">Senha</label>
+			<input class="form-control mt-1" type="password">
+			<div class="d-flex justify-content-center">
+			<a th:href="@{/cliente}"><button class="btn btn-primary mt-5 mb-5">Entrar</button></a>
+			</div>
+			</div>
+		
+        
       </div>
 
     </section>
 
 
-    <section id="destinos">
-      <div class="row mt-5">
-        <div class="col-lg-6 col-sm-12" id="nacional">
-          <h3 class="titulo-secao">Destinos Nacionais</h3>
-          <a href="./destinos.html"><button type="button" class="btn btn-warning">Conferir</button></a>
-
-        </div>
-        <div class="col-lg-6 col-sm-12" id="internacional">
-          <h3 class="titulo-secao">Destinos Internacionais</h3>
-          <a href="./destinos.html"><button type="button" class="btn btn-warning">Conferir</button></a>
-        </div>
-      </div>
-    </section>
-
-    <section id="newsletter">
-      <div class="row">
-        <div class="col-lg-12 col-sm-12 d-flex flex-column justify-content-center">
-          <img th:src="@{img/e-mail.png}" alt="">
-          <h3>Newsletter</h3>
-          <p> Receba as novidades e promoções de viagem em primeira mão!</p>
-          <form action="form-newsletter" class="d-flex justify-content-center">
-            <input class="form-control w-50" type="email" name="email" id="email-newsletter" placeholder="Digite o seu e-mail"><br>
-            <button class="btn btn-primary ms-3" type="submit">Registrar</button>
-          </form>
-        </div>
- 
-      </div>
-    </section>
-
-    <section id="painel-parceiros">
-      <div class="row" id="parceiros">
-        <h3 class="titulo-secao">Nossos Parceiros</h3>
-        <div class="col-lg-12 col-sm-12" id="img-parc">
-          <img src="./img/airbnb.png" alt="Logo do parceiro Air BnB">
-          <img src="./img/flyEmirates.png" alt="Logo do parceiro Air BnB">
-          <img src="./img/localiza.png" alt="Logo do parceiro Localiza (Aluguel de Carros)">
-          <img src="./img/allianzseguros.png" alt="Logo do parceiro Allianz Seguros de Viagem">
-        </div>
-      </div>
-    </section>
-
+    
   </main>
 
   <footer class="row row-cols-1 row-cols-md-3 g-3" id="rodape">

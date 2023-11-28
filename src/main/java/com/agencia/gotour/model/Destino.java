@@ -1,10 +1,14 @@
 package com.agencia.gotour.model;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 
@@ -24,7 +28,11 @@ import jakarta.persistence.Table;
 		@Column(nullable = false, length = 255)
 		private String descricaoDestino;
 		
-				
+		@OneToMany		 
+	    @JoinColumn(name = "idDestino")
+	    private List<Reserva> reserva;
+		
+		
 		public Destino() {
 			super();
 
@@ -60,7 +68,15 @@ import jakarta.persistence.Table;
 		public void setDescricaoDestino(String descricaoDestino) {
 			this.descricaoDestino = descricaoDestino;
 		}
-		
-		
-		
+
+		public List<Reserva> getReserva() {
+			return reserva;
 		}
+
+		public void setReserva(List<Reserva> reserva) {
+			this.reserva = reserva;
+		}
+
+		
+		
+}

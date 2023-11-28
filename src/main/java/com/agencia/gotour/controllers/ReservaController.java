@@ -11,7 +11,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.agencia.gotour.model.Cliente;
+import com.agencia.gotour.model.Destino;
 import com.agencia.gotour.model.Reserva;
+import com.agencia.gotour.services.ClienteServices;
+import com.agencia.gotour.services.DestinoServices;
 import com.agencia.gotour.services.ReservaServices;
 
 
@@ -22,10 +26,13 @@ import com.agencia.gotour.services.ReservaServices;
 
 		@Autowired
 		private ReservaServices reservaServices;
-		
+		@Autowired
+		private ClienteServices clienteServices;
+		@Autowired
+		private DestinoServices destinoServices;
 
-		@GetMapping("/areaReserva")
-		public String areaReserva (@PathVariable Long id, Model model) {
+		@GetMapping
+		public String areaReserva (Model model) {
 		List<Reserva> listarReservas =  reservaServices.buscarReservas();		
 		model.addAttribute("reservas", listarReservas);
 		return "areaReserva";
@@ -34,20 +41,31 @@ import com.agencia.gotour.services.ReservaServices;
 
 		@GetMapping("/cadastro")
 		public String cadastroReservaform(Model model) {
+		
 		Reserva reserva = new Reserva();
 		model.addAttribute("reserva", reserva);
+		List<Cliente> listaClientes = clienteServices.buscarClientes();
+		model.addAttribute("cliente", listaClientes);
+		List<Destino> listaDestinos = destinoServices.buscarDestinos();
+		model.addAttribute("destino", listaDestinos);		
+		
 		return "cadastroReserva";
 		}
 			
 
 		@PostMapping("/cadastrar")
 		public String cadastrarReserva(@ModelAttribute("reserva") Reserva reserva) {
-		reservaServices.salvarReserva(reserva);
-							
-		return "areaReserva";
+		reservaServices.salvarReserva(reserva);							
+		return "listarReserva";
+		}
+		
+		@GetMapping("/listarReserva")
+		public String editarReservaform(Model model) {			
+			List<Reserva> listaReservas = reservaServices.buscarReservas();
+			model.addAttribute("reservas", listaReservas);
+			return "listarReserva";
 		}
 			
-
 		@GetMapping("/editar/{id}")
 		public String editarReservaform(@PathVariable Long id, Model model) {
 			Reserva reserva = reservaServices.buscarReservaporId(id);
@@ -58,7 +76,7 @@ import com.agencia.gotour.services.ReservaServices;
 		@PostMapping("/editarReserva/{id}")
 		public String editarReserva(@PathVariable Long id, @ModelAttribute("reserva") Reserva reserva) {		
 			reservaServices.atualizarReserva(id, reserva);
-			return "areaReserva";
+			return "listaReserva";
 		}
 		
 
