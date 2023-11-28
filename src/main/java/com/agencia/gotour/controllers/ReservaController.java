@@ -84,10 +84,10 @@ import com.agencia.gotour.services.ReservaServices;
 		}
 		
 
-		@GetMapping("/deletar/{id}")
+		@GetMapping("/deletarReserva/{id}")
 		public String deletarReserva(@PathVariable Long id) {
 			reservaServices.deletarReserva(id);
-			return "areaReserva";
+			return "deletadaReserva";
 		}
 	
 	

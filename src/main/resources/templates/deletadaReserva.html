@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link th:href="@{/css/index.css}" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+  <title>GoTour - Área Reserva </title>
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <img id="logo" th:src="@{/img/logo.png}" /> <span id="logotxt"> <b>G</b>o<b>T</b>our</span>                
+            <div class="me-5">
+                <p class="fs-3"> Área Staff </p>
+            </div>
+        </div>
+    </nav>
+</header>
+    
+
+    <main class="container">        
+       	<p class="fs-1 text-center mt-5"> Reserva excluída com sucesso! </p>
+       	<div class="mt-5 d-flex justify-content-center">
+       	<a class="btn btn-primary"th:href="@{/reserva/listarReserva}"><i class="bi bi-arrow-left"></i> Voltar </a>
+       	</div>        
+    </main>
+
+    <footer class="row row-cols-1 row-cols-md-3 g-3 mt-5 container-fluid" id="rodape">
+        <div class="col">
+            <img id="logo" th:src="@{/img/logofooter.png}" /><span id="logotxt"> <b>G</b>o<b>T</b>our</span>
+        </div>
+        <div id="social" class="col">
+            <img th:src="@{/img/instagram.png}">
+            <img th:src="@{/img/facebook_174848.png}">
+
+        </div>
+
+        <div id="local" class="col text-center">
+            <i class="bi bi-geo-alt"></i>
+            <p>Praça Roberto Gomes Pedrosa, s/n - Jardim Leonor - São Paulo - SP</p>
+        </div>
+    </footer>
+</body>
+</html>
