@@ -65,14 +65,14 @@ public class DestinoController {
 	@PostMapping("/editarDestino/{id}")
 	public String editarDestino(@PathVariable Long id, @ModelAttribute("destino") Destino destino) {		
 		destinoServices.atualizarDestino(id, destino);
-		return "areaDestino";
+		return "listarDestino";
 	}
 	
 
 	@GetMapping("/deletarDestino/{id}")
 	public String deletarDestino(@PathVariable Long id) {
 		destinoServices.deletarDestino(id);
-		return "deletadoSucesso";
+		return "deletadoDestino";
 	}
 
 

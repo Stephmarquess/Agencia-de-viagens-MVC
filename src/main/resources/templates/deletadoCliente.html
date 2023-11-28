@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/index.css}" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <title> GoTour - Área Cliente </title>
+</head>
+
+<body>
+    <header>
+  	<nav class="navbar navbar-expand-lg" style="background-color: #6998ab">
+  	<div class="container-fluid">
+        <img id="logo" src="./img/logo.png" />
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav nav-underline">
+        <a class="nav-link active fs-5" href="#">Cliente</a>
+        <a class="nav-link fs-5" th:href="@{/reserva}">Reserva</a>
+        <a class="nav-link fs-5" th:href="@{/destino}">Destino</a>          
+      </div>
+    </div>
+  </div>
+</nav>
+    </header>
+
+    <main class="container">        
+       	<p class="fs-1 text-center mt-5"> Cliente excluído com sucesso! </p>
+       	<div class="mt-5 d-flex justify-content-center">
+       	<a class="btn btn-primary"th:href="@{/cliente/listarCliente}"><i class="bi bi-arrow-left"></i> Voltar </a>
+       	</div>        
+    </main>
+
+    <footer class="row row-cols-1 row-cols-md-3 g-3 mt-5 container-fluid" id="rodape">
+        <div class="col">
+            <img id="logo" th:src="@{/img/logofooter.png}" /><span id="logotxt"> <b>G</b>o<b>T</b>our</span>
+        </div>
+        <div id="social" class="col">
+            <img th:src="@{/img/instagram.png}">
+            <img th:src="@{/img/facebook_174848.png}">
+
+        </div>
+
+        <div id="local" class="col text-center">
+            <i class="bi bi-geo-alt"></i>
+            <p>Praça Roberto Gomes Pedrosa, s/n - Jardim Leonor - São Paulo - SP</p>
+        </div>
+    </footer>
+</body>
+</html>

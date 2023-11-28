@@ -73,7 +73,7 @@ import com.agencia.gotour.services.ClienteServices;
 		@GetMapping("/deletarCliente/{id}")
 		public String deletarCliente(@PathVariable Long id) {
 			clienteServices.deletarCliente(id);
-			return "listarCliente";
+			return "deletadoCliente";
 		}
 	
 	
