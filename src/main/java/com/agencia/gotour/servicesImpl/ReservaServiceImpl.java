@@ -39,8 +39,10 @@ import org.springframework.transaction.annotation.Transactional;
 			Reserva reservaExistente = reservaRepository.findById(id).orElse(null);
 			if (reservaExistente != null) {
 				reservaExistente.setDescricaoReserva(reservaAtualizada.getDescricaoReserva());
+				reservaExistente.setCliente(reservaAtualizada.getCliente());
+				reservaExistente.setDestino(reservaAtualizada.getDestino());				
 				reservaExistente.setDataIda(reservaAtualizada.getDataIda());
-				reservaExistente.setDataIda(reservaAtualizada.getDataVolta());
+				reservaExistente.setDataVolta(reservaAtualizada.getDataVolta());
 				reservaExistente.setValor(reservaAtualizada.getValor());
 				reservaExistente.setTipoPagamento(reservaAtualizada.getTipoPagamento());
 				return reservaRepository.save(reservaExistente);

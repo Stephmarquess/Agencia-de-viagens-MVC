@@ -66,10 +66,14 @@ import com.agencia.gotour.services.ReservaServices;
 			return "listarReserva";
 		}
 			
-		@GetMapping("/editar/{id}")
+		@GetMapping("/editarReserva/{id}")
 		public String editarReservaform(@PathVariable Long id, Model model) {
 			Reserva reserva = reservaServices.buscarReservaporId(id);
 			model.addAttribute("reserva", reserva);
+			List<Cliente> listaClientes = clienteServices.buscarClientes();
+			model.addAttribute("cliente", listaClientes);
+			List<Destino> listaDestinos = destinoServices.buscarDestinos();
+			model.addAttribute("destino", listaDestinos);	
 			return "editarReserva";
 		}
 		
