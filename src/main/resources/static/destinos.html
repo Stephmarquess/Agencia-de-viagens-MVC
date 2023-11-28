@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link th:href="@{/css/destinos.css}" rel="stylesheet" />
+  <link href="./css/destinos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
   <title>GoTour - Destinos </title>
 </head>
 
@@ -13,7 +14,7 @@
   <header>
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
-        <img id="logo" src="./IMAGENS/logo.png" /> <span id="logotxt"> <b>G</b>o<b>T</b>our</span>
+        <img id="logo" src="./img/logo.png" /> <span id="logotxt"> <b>G</b>o<b>T</b>our</span>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
           aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -36,8 +37,7 @@
           </ul>
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit"><img src="./IMAGENS/lupa.png"
-                alt="icone de lupa para pesquisa" height="20px"></button>
+			<button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
           </form>
         </div>
       </div>
@@ -53,7 +53,7 @@
       <div class="col-lg-4">
         <div class="card-group">
           <div class="card">
-            <img src="./IMAGENS/jericoacoara.jpg" class="card-img-top"
+            <img src="./img/jericoacoara.jpg" class="card-img-top"
               alt="imagem da praia de Jericoacoara">
             <div class="card-body">
               <h5 class="card-title">Jericoacoara</h5>
@@ -72,7 +72,7 @@
 
       <div class="col-lg-4">
         <div class="card">
-          <img src="./IMAGENS/beachpark.jpg" class="card-img-top" alt="Imagem do Beach Park">
+          <img src="./img/beachpark.jpg" class="card-img-top" alt="Imagem do Beach Park">
           <div class="card-body">
             <h5 class="card-title">Beach Park</h5>
             <p class="card-text">
@@ -89,7 +89,7 @@
 
       <div class="col-lg-4">
         <div class="card">
-          <img src="./IMAGENS/fernandodenoronha.jpg" class="card-img-top"
+          <img src="./img/fernandodenoronha.jpg" class="card-img-top"
             alt="Imagem da ilha de Fernando de Noronha">
           <div class="card-body">
             <h5 class="card-title">Fernando de Noronha</h5>
@@ -110,7 +110,7 @@
       <div class="col-lg-4">
         <div class="card-group">
           <div class="card">
-            <img src="./IMAGENS/arraialdocabo.png" class="card-img-top"
+            <img src="./img/arraialdocabo.png" class="card-img-top"
               alt="imagem da praia de Jericoacoara">
             <div class="card-body">
               <h5 class="card-title">Arraial do Cabo</h5>
@@ -128,7 +128,7 @@
       </div>
       <div class="col-lg-4">
         <div class="card">
-          <img src="./IMAGENS/gramado.png" class="card-img-top" alt="Imagem do Beach Park">
+          <img src="./img/gramado.png" class="card-img-top" alt="Imagem do Beach Park">
           <div class="card-body">
             <h5 class="card-title">Gramado</h5>
             <p class="card-text">
@@ -146,7 +146,7 @@
       </div>
       <div class="col-lg-4">
         <div class="card">
-          <img src="./IMAGENS/curitiba.png" class="card-img-top"
+          <img src="./img/curitiba.png" class="card-img-top"
             alt="Imagem da ilha de Fernando de Noronha">
           <div class="card-body">
             <h5 class="card-title">Curitiba</h5>
@@ -169,7 +169,7 @@
       <div class="col-lg-4">
         <div class="card-group">
           <div class="card">
-            <img src="./IMAGENS/paris.jpg" class="card-img-top" alt="imagem da Torre Eiffel em Paris">
+            <img src="./img/paris.jpg" class="card-img-top" alt="imagem da Torre Eiffel em Paris">
             <div class="card-body">
               <h5 class="card-title">Paris</h5>
               <p class="card-text">
@@ -189,7 +189,7 @@
       </div>
       <div class="col-lg-4">
         <div class="card">
-          <img src="./IMAGENS/lisboa.jpg" class="card-img-top" alt="Imagem da cidade de Lisboa">
+          <img src="./img/lisboa.jpg" class="card-img-top" alt="Imagem da cidade de Lisboa">
           <div class="card-body">
             <h5 class="card-title">Lisboa</h5>
             <p class="card-text">
@@ -206,7 +206,7 @@
       </div>
       <div class="col-lg-4">
         <div class="card">
-          <img src="./IMAGENS/madrid.jpg" class="card-img-top" alt="Imagem da ilha de Fernando de Noronha">
+          <img src="./img/madrid.jpg" class="card-img-top" alt="Imagem da ilha de Fernando de Noronha">
           <div class="card-body">
             <h5 class="card-title">Madrid</h5>
             <p class="card-text">
@@ -227,11 +227,12 @@
 
   <footer class="row row-cols-1 row-cols-md-3 g-3" id="rodape">
     <div class="col">
-      <img id="logo" src="./IMAGENS/logo.png" /><span id="logotxt"> <b>G</b>o<b>T</b>our</span>
+      <img id="logo" src="./img/logo.png" /><span id="logotxt"> <b>G</b>o<b>T</b>our</span>
     </div>
-    <div id="social" class="col">
-      <img src="./IMAGENS/instagram.png">
-      <img src="./IMAGENS/facebook.png" style="border-radius: 80%; width: 30px;">
+    <div id="social" class="col d-flex gap-5 justify-content-center">
+      <p class="fs-2"><i class="bi bi-instagram"></i></p>
+      <p class="fs-2"><i class="bi bi-facebook"></i></p>
+
     </div>
 
     <div id="local" class="col text-center">
