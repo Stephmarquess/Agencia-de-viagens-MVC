@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.agencia.gotour.model.Cliente;
 import com.agencia.gotour.model.Destino;
 import com.agencia.gotour.model.Reserva;
-import com.agencia.gotour.repositories.ReservaRepository;
 import com.agencia.gotour.services.ClienteServices;
 import com.agencia.gotour.services.DestinoServices;
 import com.agencia.gotour.services.ReservaServices;
@@ -31,6 +30,7 @@ import com.agencia.gotour.services.ReservaServices;
 		private ClienteServices clienteServices;
 		@Autowired
 		private DestinoServices destinoServices;
+
 
 		@GetMapping
 		public String areaReserva (Model model) {
@@ -73,11 +73,6 @@ import com.agencia.gotour.services.ReservaServices;
 		Reserva reservaLocalizada = reservaServices.buscarReservaporId(id);
 		model.addAttribute("reserva", reservaLocalizada);
 		
-		List<Cliente> listaClientes = clienteServices.buscarClientes();
-		model.addAttribute("cliente", listaClientes);
-		List<Destino> listaDestinos = destinoServices.buscarDestinos();
-		model.addAttribute("destino", listaDestinos);	
-		
 		return "detalhesReserva";
 		}
 		
@@ -86,6 +81,7 @@ import com.agencia.gotour.services.ReservaServices;
 		public String editarReservaform(@PathVariable Long id, Model model) {
 			Reserva reserva = reservaServices.buscarReservaporId(id);
 			model.addAttribute("reserva", reserva);
+			
 			List<Cliente> listaClientes = clienteServices.buscarClientes();
 			model.addAttribute("cliente", listaClientes);
 			List<Destino> listaDestinos = destinoServices.buscarDestinos();
@@ -96,7 +92,7 @@ import com.agencia.gotour.services.ReservaServices;
 		@PostMapping("/editarReserva/{id}")
 		public String editarReserva(@PathVariable Long id, @ModelAttribute("reserva") Reserva reserva) {		
 			reservaServices.atualizarReserva(id, reserva);
-			return "listaReserva";
+			return "detalhesReserva";
 		}
 		
 
