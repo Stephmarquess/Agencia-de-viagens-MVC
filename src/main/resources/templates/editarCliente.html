@@ -34,7 +34,7 @@
     </header>
     
       <main class="container">
-        <p class="fs-1 text-center mt-5"> Atualizar Cadastro </p>
+        <p class="fs-1 text-center mt-5"> Atualizar Cliente </p>
         <div class="d-flex mt-3 shadow p-3 flex-column p-5">  
             
         <form th:action="@{/cliente/editarCliente/{id}(id=${cliente.id})}" th:object="${cliente}" method="post">			

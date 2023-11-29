@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/index.css}" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <title> GoTour - Área Cliente </title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg mb-3 shadow">
+            <div class="container-fluid">
+                <div>
+                <img id="logo" th:src="@{/img/logo.png}" /><span class="fs-4"> <b>G</b>o<b>T</b>our - Área Staff</span>
+                </div>
+                <ul class="nav nav-underline justify-content-center gap-5 me-3 text-center">
+                    <li class="nav-item">
+                      <a class="nav-link active fs-5" aria-current="page" href="#">Cliente</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="text-dark nav-link fs-5" th:href="@{/reserva}">Reserva</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="text-dark nav-link fs-5" th:href="@{/destino}">Destino</a>
+                      </li>
+                  </ul>
+
+            </div>            
+        </nav>        
+    </header>
+
+    <main class="container">        
+       	<p class="fs-1 text-center mt-5"> Cliente cadastrado com sucesso! </p>
+      <div class="table-responsive ">
+        <table class="table table-striped mt-3">
+                <thead class="thead-dark">
+              <tr>  
+             
+                  <th>Nome</th>
+                  <th>E-mail</th>
+                  <th>Telefone</th>
+                  <th>Endereço</th>
+                  <th>CPF</th>                  
+                  <th class="text-center">Opções</th>                   
+              </tr>
+          </thead>
+          <tbody>	      
+              <tr th:each="cliente: ${cliente}">
+                  
+                  <td th:text="${cliente.nomeCliente}"></td>
+                  <td th:text="${cliente.email}"></td>
+                  <td th:text="${cliente.telefone}"></td>
+                  <td th:text="${cliente.endereco}"></td>
+                  <td th:text="${cliente.cpf}"></td>
+                                    
+                  
+            <td class="d-flex justify-content-center gap-3">
+			  <a th:href="@{/cliente/detalharCliente/{id}(id=${cliente.id})}"><i class="bi bi-search"></i> </a>
+              <a th:href="@{/cliente/editarCliente/{id}(id=${cliente.id})}"><i class="bi bi-pencil-square"></i>  </a>
+              <a th:href="@{/cliente/deletarCliente/{id}(id=${cliente.id})}"> <i class="bi bi-trash3"></i> </a>
+          </td>
+
+              </tr>
+              </tbody>
+            </div> 
+          </table> 
+          <div class="d-flex justify-content-center mt-5">    
+    <a class="btn btn-primary"th:href="@{/cliente}"> Área Cliente </a>
+    </div>      
+    </main>
+
+    <footer class="row row-cols-1 row-cols-md-3 g-3 mt-5 container-fluid" id="rodape">
+        <div class="col">
+            <img id="logo" th:src="@{/img/logofooter.png}" /><span id="logotxt"> <b>G</b>o<b>T</b>our</span>
+        </div>
+        <div id="social" class="col">
+            <img th:src="@{/img/instagram.png}">
+            <img th:src="@{/img/facebook_174848.png}">
+
+        </div>
+
+        <div id="local" class="col text-center">
+            <i class="bi bi-geo-alt"></i>
+            <p>Praça Roberto Gomes Pedrosa, s/n - Jardim Leonor - São Paulo - SP</p>
+        </div>
+    </footer>
+</body>
+</html>

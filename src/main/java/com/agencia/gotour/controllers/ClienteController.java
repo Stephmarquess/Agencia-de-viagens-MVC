@@ -40,8 +40,8 @@ import com.agencia.gotour.services.ClienteServices;
 
 		@PostMapping("/cadastrar")		
 		public String cadastrarCliente(@ModelAttribute("cliente") Cliente cliente) {
-		clienteServices.salvarCliente(cliente);							
-		return "listarCliente";
+		clienteServices.salvarCliente(cliente);
+		return "SucessoCadastroCliente";
 		}			
 		
 

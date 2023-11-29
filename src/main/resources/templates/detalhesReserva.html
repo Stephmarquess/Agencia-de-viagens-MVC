@@ -39,7 +39,7 @@
 
   <ul class="list-group list-group-flush" th:each="reserva : ${reserva}">
   <li class="list-group-item fs-5"><strong>Id:</strong> <span th:text="${reserva.id}"></span></li>
-  <li class="list-group-item fs-5"><strong>Cliente:</strong> <span th:text="${reserva.cliente.id}"></span></li>
+  <li class="list-group-item fs-5"><strong>Cliente:</strong> <span th:text="${reserva.cliente.id}"></span></li>  
   <li class="list-group-item fs-5"><strong>Destino:</strong> <span th:text="${reserva.destino.id}"></span></li>
   <li class="list-group-item fs-5"><strong>Descrição da reserva:</strong> <span th:text="${reserva.descricaoReserva}"></span></li>
   <li class="list-group-item fs-5"><strong>Data Ida:</strong> <span th:text="${reserva.dataIda}"> </li>
@@ -48,13 +48,9 @@
   <li class="list-group-item fs-5"><strong>Pagamento:</strong> <span th:text="${reserva.tipoPagamento}"></li>
   
 </ul>	
-		</div>
-   
-   <div class="d-flex justify-content-center mt-3">    
-    <a class="btn btn-primary"th:href="@{/cliente/listarCliente}"><i class="bi bi-printer"></i> Imprimir </a>
-    </div>
+		</div>   
    <div class="d-flex justify-content-center mt-5">    
-    <a class="btn btn-primary"th:href="@{/cliente/listarCliente}"><i class="bi bi-arrow-left"></i> Voltar </a>
+    <a class="btn btn-primary"th:href="@{/reserva/listarReserva}"><i class="bi bi-arrow-left"></i> Voltar </a>
     </div>
     
     </main>
