@@ -11,38 +11,37 @@
 </head>
 
 <body>
-
     <header>
         <nav class="navbar navbar-expand-lg mb-3 shadow">
             <div class="container-fluid">
-                <i class="bi bi-globe-americas"></i>
-                <ul class="nav nav-underline justify-content-center gap-5">
+                <div>
+                <img id="logo" th:src="@{/img/logo.png}" /><span class="fs-4"> <b>G</b>o<b>T</b>our - Área Staff</span>
+                </div>
+                <ul class="nav nav-underline justify-content-center gap-5 me-3 text-center">
                     <li class="nav-item">
-                      <a class="nav-link active fs-5" aria-current="page" href="#">Clientes</a>
+                      <a class="nav-link active fs-5" aria-current="page" href="#">Reserva</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fs-5" th:href="@{/reserva/areaReserva/}">Reserva</a>
+                        <a class="text-dark nav-link fs-5" th:href="@{/cliente}">Cliente</a>
                       </li>
                       <li class="nav-item">
-                        <a class=" nav-link fs-5" th:href="@{/cliente/areaCliente/}">Destino</a>
+                        <a class="text-dark nav-link fs-5" th:href="@{/destino}">Destino</a>
                       </li>
-
                   </ul>
-                  <div class="me-2">
-                    <p class="fs-3"> Área Staff </p>
-                </div>
             </div>            
-        </nav>
+        </nav>        
     </header>
 
     <main class="container">
-        <p class="fs-1 text-center mt-5"> Informações do Cliente </p>
-		
+        <p class="fs-1 text-center mt-5"> Detalhes da Reserva </p>
+		   
 		<div class="container shadow" th:if="${reserva != null}"> 
 
-	<ul class="list-group list-group-flush" th:each="reserva : ${reserva}">
+  <ul class="list-group list-group-flush" th:each="reserva : ${reserva}">
   <li class="list-group-item fs-5"><strong>Id:</strong> <span th:text="${reserva.id}"></span></li>
-  <li class="list-group-item fs-5"><strong>Descrição:</strong> <span th:text="${reserva.descricao}"></span></li>
+  <li class="list-group-item fs-5"><strong>Cliente:</strong> <span th:text="${reserva.cliente.id}"></span></li>
+  <li class="list-group-item fs-5"><strong>Destino:</strong> <span th:text="${reserva.destino.id}"></span></li>
+  <li class="list-group-item fs-5"><strong>Descrição da reserva:</strong> <span th:text="${reserva.descricaoReserva}"></span></li>
   <li class="list-group-item fs-5"><strong>Data Ida:</strong> <span th:text="${reserva.dataIda}"> </li>
   <li class="list-group-item fs-5"><strong>Data Volta:</strong> <span th:text="${reserva.dataVolta}"></li>
   <li class="list-group-item fs-5"><strong>Valor:</strong> <span th:text="${reserva.valor}"></li>
@@ -50,9 +49,14 @@
   
 </ul>	
 		</div>
+   
+   <div class="d-flex justify-content-center mt-3">    
+    <a class="btn btn-primary"th:href="@{/cliente/listarCliente}"><i class="bi bi-printer"></i> Imprimir </a>
+    </div>
    <div class="d-flex justify-content-center mt-5">    
     <a class="btn btn-primary"th:href="@{/cliente/listarCliente}"><i class="bi bi-arrow-left"></i> Voltar </a>
     </div>
+    
     </main>
 
     <footer class="row row-cols-1 row-cols-md-3 g-3 mt-5 container-fluid" id="rodape">

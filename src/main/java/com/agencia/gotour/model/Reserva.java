@@ -2,7 +2,6 @@ package com.agencia.gotour.model;
 
 
 import java.time.LocalDate;
-import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -60,15 +59,18 @@ import jakarta.persistence.Table;
 			super();
 		}
 
+	
 		public Reserva(Long id, String descricaoReserva, LocalDate dataIda, LocalDate dataVolta, Double valor,
-				String tipoPagamento) {
-
+				String tipoPagamento, Cliente cliente, Destino destino) {
+			super();
 			this.id = id;
 			this.descricaoReserva = descricaoReserva;
 			this.dataIda = dataIda;
 			this.dataVolta = dataVolta;
 			this.valor = valor;
 			this.tipoPagamento = tipoPagamento;
+			this.cliente = cliente;
+			this.destino = destino;
 		}
 
 		public Long getId() {

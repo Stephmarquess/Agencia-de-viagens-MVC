@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.agencia.gotour.model.Destino;
-
-
 import com.agencia.gotour.services.DestinoServices;
 
 

@@ -44,6 +44,7 @@ public class ClienteServiceImpl implements ClienteServices {
 			clienteExistente.setEmail(clienteAtualizado.getEmail());
 			clienteExistente.setCpf(clienteAtualizado.getCpf());
 			clienteExistente.setEndereco(clienteAtualizado.getEndereco());
+			clienteExistente.setTelefone(clienteAtualizado.getTelefone());
 			return clienteRepository.save(clienteExistente);
 		} else {
 			throw new RuntimeException("Usuario com o ID " + id + "não encontrado.");
