@@ -12,43 +12,46 @@
 
 <body>
     <header>
-  	<nav class="navbar navbar-expand-lg" style="background-color: #6998ab">
-  	<div class="container-fluid">
-        <img id="logo" src="./img/logo.png" />
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav nav-underline">
-        <a class="nav-link active fs-5" href="#">Destino</a>
-        <a class="nav-link fs-5" th:href="@{/cliente}">Cliente</a>
-        <a class="nav-link fs-5" th:href="@{/reserva}">Reserva</a>          
-      </div>
-    </div>
-  </div>
-</nav>
+        <nav class="navbar navbar-expand-lg mb-3 shadow">
+            <div class="container-fluid">
+                <div>
+                <img id="logo" th:src="@{/img/logo.png}" /><span class="fs-4"> <b>G</b>o<b>T</b>our - Área Staff</span>
+                </div>
+                <ul class="nav nav-underline justify-content-center gap-5 me-3 text-center">
+                    <li class="nav-item">
+                      <a class="nav-link active fs-5" aria-current="page" href="#">Destino</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="text-dark nav-link fs-5" th:href="@{/cliente}">Cliente</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="text-dark nav-link fs-5" th:href="@{/reserva}"> Reserva </a>
+                      </li>
+                  </ul>
+            </div>            
+        </nav>        
     </header>
 
-    <main class="container mt-5">
+    <main class="container p-5">
 
         <p class="fs-2">Área Destino </p>
         <div class="text-center mt-5 d-flex justify-content-center gap-5 row row-cols-md-3 row-cols-sm-1">
         
         <a th:href="@{/destino/cadastro}" class="btn btn-primary text-white shadow col"><p class="fs-4 text-center"><i class="bi bi-person-plus"></i> Cadastrar Destino</p></a>
-        <a th:href="@{/destino/listarDestino}" class="btn btn-primary text-white shadow col"><p class="fs-4"> <i class="bi bi-card-checklist"></i> Listar Destino </p></a>
-        <a th:href="@{/destino/editarDestino}" class="btn btn-primary text-white shadow col"><p class="fs-4"><i class="bi bi-search"></i> Consultar Reservas </p></a>
-        <a th:href="@{/destino/deletarDestino/}" class="btn btn-primary text-white shadow col"><p class="fs-4"><i class="bi bi-trash"></i> Excluir Destino </p></a>
+        <a th:href="@{/destino/listarDestino}" class="btn btn-primary text-white shadow col"><p class="fs-4"> <i class="bi bi-card-checklist"></i> Gerenciar Destino </p></a>
+
     </div>
     </main>
 
-  <footer class="row row-cols-1 row-cols-md-3 g-3" style="background-color: #6998ab;">
+	<footer class="row row-cols-1 row-cols-md-3 g-3 mt-5 p-3" id="rodape">
     <div class="col">
-      <img id="logo" src="./img/logo.png" /><span id="logotxt"> <b>G</b>o<b>T</b>our</span>
+      <img id="logo" th:src="@{./img/logo.png}" /><span id="logotxt"> <b>G</b>o<b>T</b>our</span>
     </div>
     <div id="social" class="col d-flex gap-5 justify-content-center">
       <p class="fs-2"><i class="bi bi-instagram"></i></p>
       <p class="fs-2"><i class="bi bi-facebook"></i></p>
     </div>
+
     <div id="local" class="col text-center">
       <i class="bi bi-geo-alt"></i>
       <p>Praça Roberto Gomes Pedrosa, s/n - Jardim Leonor - São Paulo - SP</p>

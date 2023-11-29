@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
 import com.agencia.gotour.model.Cliente;
+import com.agencia.gotour.model.Reserva;
+import com.agencia.gotour.repositories.ReservaRepository;
 import com.agencia.gotour.services.ClienteServices;
 
 	@Controller
@@ -21,6 +22,8 @@ import com.agencia.gotour.services.ClienteServices;
 
 		@Autowired
 		private ClienteServices clienteServices;
+		@Autowired
+		private ReservaRepository reservaRepository;
 		
 		@GetMapping
 		public String areaCliente() {			
@@ -53,6 +56,10 @@ import com.agencia.gotour.services.ClienteServices;
 		public String detalharCliente (@PathVariable (value= "id") Long id, Model model) {
 		Cliente clienteLocalizado =  clienteServices.buscarClienteporId(id);		
 		model.addAttribute("cliente", clienteLocalizado);
+		
+		List<Reserva> reservas = reservaRepository.findByClienteId(id);	
+		model.addAttribute("reservas", reservas);
+		
 		return "detalhesClientes";
 		}
 

@@ -37,7 +37,7 @@ import jakarta.persistence.Table;
 	    private String endereco;
 		
 		@Column(nullable = false, length = 50)
-		private String senha;
+		private String telefone;
 		
 		
 	    @OneToMany(cascade = CascadeType.ALL)
@@ -48,15 +48,14 @@ import jakarta.persistence.Table;
 	    		
 
 		public Cliente(Long id, String nomeCliente, String cpf, String email, String endereco,
-				String senha) {
+				String telefone) {
 		
 			this.id = id;
 			this.nomeCliente = nomeCliente;
 			this.cpf = cpf;
 			this.email = email;
-
 			this.endereco = endereco;
-			this.senha = senha;
+			this.telefone = telefone;
 		}
 
 		public Cliente() {
@@ -104,12 +103,12 @@ import jakarta.persistence.Table;
 			this.endereco = endereco;
 		}
 
-		public String getSenha() {
-			return senha;
+		public String getTelefone() {
+			return telefone;
 		}
 
-		public void setSenha(String senha) {
-			this.senha = senha;
+		public void setTelefone(String telefone) {
+			this.telefone = telefone;
 		}
 
 		public List<Reserva> getReservas() {
