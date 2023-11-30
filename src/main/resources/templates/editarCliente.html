@@ -17,18 +17,22 @@
                 <div>
                 <img id="logo" th:src="@{/img/logo.png}" height="50px" width="50px" /><span class="fs-4"> <b>G</b>o<b>T</b>our - Área Staff</span>
                 </div>
-                <ul class="nav nav-underline justify-content-center gap-5 me-3 text-center">
+                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="nav nav-underline justify-content-center gap-5 me-3 text-center" >
                     <li class="nav-item">
-                      <a class="nav-link active fs-5" aria-current="page" href="#">Cliente</a>
+                      <a class="nav-link text-white active fs-5" aria-current="page" href="#">Cliente</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-dark nav-link fs-5" th:href="@{/reserva}">Reserva</a>
+                        <a class="nav-link text-white fs-5" th:href="@{/reserva}">Reserva</a>
                       </li>
                       <li class="nav-item">
-                        <a class="text-dark nav-link fs-5" th:href="@{/destino}">Destino</a>
+                        <a class="nav-link text-white fs-5" th:href="@{/destino}">Destino</a>
                       </li>
                   </ul>
-
+            </div>
             </div>            
         </nav>        
     </header>
@@ -77,20 +81,21 @@
 
         
         </main>
-<footer class="row row-cols-1 row-cols-md-3 g-3 p-3" style="background-color: #223649; color: #ffffff;">
+<footer class="container-fluid">
+	<div class="row row-cols-1 row-cols-md-3 g-3 p-3" style="background-color: #223649; color: #ffffff;">
     <div class="col">
-      <img id="logo" th:src="@{/img/logo.png}" /><span id="logotxt"> <b>G</b>o<b>T</b>our</span>
+      <img id="logo" th:src="@{/img/logo.png}" height="50px" width="50px" /><span id="logotxt"> <b>G</b>o<b>T</b>our</span>
     </div>
     <div id="social" class="col d-flex gap-5 justify-content-center">
       <p class="fs-2"><i class="bi bi-instagram"></i></p>
       <p class="fs-2"><i class="bi bi-facebook"></i></p>
     </div>
-
     <div id="local" class="col text-center">
       <i class="bi bi-geo-alt"></i>
       <p>Praça Roberto Gomes Pedrosa, s/n - Jardim Leonor - São Paulo - SP</p>
   </div>
-  </footer>
+  </div>
+</footer>
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

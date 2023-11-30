@@ -11,32 +11,43 @@
 </head>
 
 <body>
-    <header style="background-color: #223649; color: #ffffff;">
+<header style="background-color: #223649; color: #ffffff;">
         <nav class="navbar navbar-expand-lg mb-3 shadow">
             <div class="container-fluid">
                 <div>
                 <img id="logo" th:src="@{/img/logo.png}" height="50px" width="50px" /><span class="fs-4"> <b>G</b>o<b>T</b>our - Área Staff</span>
                 </div>
-                <ul class="nav nav-underline justify-content-center gap-5 me-3 text-center">
+                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="nav nav-underline justify-content-center gap-5 me-3 text-center" >
                     <li class="nav-item">
-                      <a class="nav-link active fs-5" aria-current="page" href="#">Cliente</a>
+                      <a class="nav-link text-white active fs-5" aria-current="page" href="#">Cliente</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-dark nav-link fs-5" th:href="@{/reserva}">Reserva</a>
+                        <a class="nav-link text-white fs-5" th:href="@{/reserva}">Reserva</a>
                       </li>
                       <li class="nav-item">
-                        <a class="text-dark nav-link fs-5" th:href="@{/destino}">Destino</a>
+                        <a class="nav-link text-white fs-5" th:href="@{/destino}">Destino</a>
                       </li>
                   </ul>
-
+            </div>
             </div>            
         </nav>        
-    </header>
+</header>
 
-    <main class="container mt-3 p-5">
+    <main class="container p-5">
 
-        <p class="fs-2">Área Cliente </p>        
-        <div class="text-center mt-5 d-flex justify-content-center gap-5 row row-cols-md-3 row-cols-sm-1">
+        <p class="fs-1 fw-bolder">Área Cliente </p>
+        </div>        
+<div class="d-flex justify-content mb-5 gap-3">
+<input class="form-control" type="search" id="search" name="busca" placeholder="Buscar cliente">
+        <button class="btn btn-primary" type="submit">Buscar</button>
+        </div>
+
+        <div class="text-center mt-3 d-flex justify-content-center gap-5 row row-cols-md-3 row-cols-sm-1">			
+			
         
         <a th:href="@{/cliente/cadastro}" class="btn btn-primary text-white shadow col"><p class="fs-4 text-center"><i class="bi bi-person-plus"></i> Cadastrar Cliente</p></a>
         <a th:href="@{/cliente/listarCliente}" class="btn btn-primary text-white shadow col"><p class="fs-4"> <i class="bi bi-card-checklist"></i> Gerenciar Cliente </p></a>
@@ -44,9 +55,17 @@
         
     </div>
 
+<div class="mt-5 p-2">
+	<p class="fs-5 fw-bolder">Telefones úteis</p>
+	<div class="row row-cols-md-5 row-cols-1 mt-3 d-flex gap-5 justify-content-center">
+	<span class="col"><i class="bi bi-telephone"></i> Seguro Viagem <br>(88) 9999-9999 </span><span class="col"><i class="bi bi-telephone"></i> Serviço de Transfer (88) 9999-9999 </span>
+	<span class="col"><i class="bi bi-telephone"></i> Gerencia (88) 9999-9999 </span> <span class="col"><i class="bi bi-telephone"></i> Central (88) 9999-9999 </span>
+	</div>
+</div>
     </main>
 
-	<footer class="row row-cols-1 row-cols-md-3 g-3 p-3" style="background-color: #223649; color: #ffffff;">
+<footer class="container-fluid">
+	<div class="row row-cols-1 row-cols-md-3 g-3 p-3" style="background-color: #223649; color: #ffffff;">
     <div class="col">
       <img id="logo" th:src="@{/img/logo.png}" height="50px" width="50px" /><span id="logotxt"> <b>G</b>o<b>T</b>our</span>
     </div>
@@ -58,7 +77,9 @@
       <i class="bi bi-geo-alt"></i>
       <p>Praça Roberto Gomes Pedrosa, s/n - Jardim Leonor - São Paulo - SP</p>
   </div>
-  </footer>
+  </div>
+</footer>
+<script type="text/javascript" th:src="@{/js/script.js}"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 </body>
