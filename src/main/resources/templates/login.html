@@ -13,10 +13,11 @@
 
 <body>
 
-  <header>
+  <header style="background-color: #223649; color: #ffffff;">
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
-        <img id="logo" src="./img/logo.png"/> <span id="logotxt"> <b>G</b>o<b>T</b>our</span>
+        <img id="logo" src="./img/logo.png" height="50px" width="50px" /> <span class="fs-4"> <b>G</b>o<b>T</b>our
+        - Área Staff</span>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
           aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -30,9 +31,9 @@
 
   <main class="container">
 
-    <section class="p-5 mt-5" id="inicio">
+    <section class="p-5 shadow" id="inicio">
 		
-      <h2 class="text-center mt-5">Área Staff - Login</h2>
+      <h2 class="text-center mt-5">Login</h2>
              
 			<div class="passagem d-flex flex-column mt-3">
 			<label class="form-label fs-5 fw-bolder">E-mail</labelclass="form-label">
@@ -42,20 +43,14 @@
 			<div class="d-flex justify-content-center">
 			<a th:href="@{/cliente}"><button class="btn btn-primary mt-5 mb-5">Entrar</button></a>
 			</div>
-			</div>
-		
-        
-  
-
+			</div>     
     </section>
-
-
     
   </main>
 
-  <footer class="row row-cols-1 row-cols-md-3 g-3" id="rodape">
+  <footer class="row row-cols-1 row-cols-md-3 g-3 container-fluid" style="background-color: #223649; color: #ffffff;">
     <div class="col">
-      <img id="logo" src="./img/logo.png" /><span id="logotxt"> <b>G</b>o<b>T</b>our</span>
+      <img id="logo" src="./img/logo.png" height="50px" width="50px" /><span id="logotxt"> <b>G</b>o<b>T</b>our</span>
     </div>
     <div id="social" class="col d-flex gap-5 justify-content-center">
       <p class="fs-2"><i class="bi bi-instagram"></i></p>
