@@ -5,18 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link th:href="@{/css/index.css}" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <title> GoTour - Área Cliente </title>
 </head>
 
 <body>
-    <header>
+    <header style="background-color: #223649; color: #ffffff;">
         <nav class="navbar navbar-expand-lg mb-3 shadow">
             <div class="container-fluid">
                 <div>
-                <img id="logo" th:src="@{/img/logo.png}" /><span class="fs-4"> <b>G</b>o<b>T</b>our - Área Staff</span>
+                <img id="logo" th:src="@{/img/logo.png}" height="50px" width="50px" /><span class="fs-4"> <b>G</b>o<b>T</b>our - Área Staff</span>
                 </div>
                 <ul class="nav nav-underline justify-content-center gap-5 me-3 text-center">
                     <li class="nav-item">
@@ -47,9 +46,9 @@
 
     </main>
 
-	<footer class="row row-cols-1 row-cols-md-3 g-3 p-3"  id="rodape">
+	<footer class="row row-cols-1 row-cols-md-3 g-3 p-3" style="background-color: #223649; color: #ffffff;">
     <div class="col">
-      <img id="logo" src="./img/logo.png" /><span id="logotxt"> <b>G</b>o<b>T</b>our</span>
+      <img id="logo" th:src="@{/img/logo.png}" height="50px" width="50px" /><span id="logotxt"> <b>G</b>o<b>T</b>our</span>
     </div>
     <div id="social" class="col d-flex gap-5 justify-content-center">
       <p class="fs-2"><i class="bi bi-instagram"></i></p>
