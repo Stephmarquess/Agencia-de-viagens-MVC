@@ -1,4 +1,4 @@
-#  GoTour - Projeto FullStack produzido para a RECODE PRO 2023.
+# GoTour - Projeto FullStack produzido para a RECODE PRO 2023.
 
 Projeto modelado em MVC com Java Web utilizando Spring Boot e MySQL. 
 
@@ -22,7 +22,7 @@ Projeto modelado em MVC com Java Web utilizando Spring Boot e MySQL.
 
 <h2> Próximas atualizações </h2>
 
-  <li> Implementar a perspectiva do "Usuário" com criação de perfil, visualizacao dos dados, atualização, cadastro de reserva e deleção dos dados.</li>  
+  <li> Implementar a perspectiva do "Cliente" com criação de perfil, visualizacao dos dados, atualização, cadastro de reserva e deleção dos dados.</li>  
   <li> Adicionar área de Login para Cliente e Staff. </li>
 </ol>
 
