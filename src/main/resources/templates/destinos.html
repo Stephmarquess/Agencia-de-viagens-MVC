@@ -43,11 +43,11 @@
           <img id="logo" src="./img/logo.png" height="50px" width="50px"/><a href="index.html" class="logo m-0">GoTour <span class="text-primary">.</span></a>
   
           <ul class="js-clone-nav d-none d-lg-inline-block text-left site-menu float-right">
-            <li class="active"><a href="index.html">Home</a></li>					
-            <li><a href="promocoes.html">Promoções</a></li>
-            <li><a href="destinos.html">Destinos</a></li>
-            <li><a href="contato.html">Contatos</a></li>
-            <li><a class="btn btn-outline-white text-white btn-md font-weight-bold" href="contact.html">Área Staff</a></li>
+					<li><a th:href="@{/home}">Home</a></li>					
+					<li><a th:href="@{/promocoes}">Promoções</a></li>
+					<li class="active"><a href="#">Destinos</a></li>
+					<li><a th:href="@{/contatos}">Contatos</a></li>
+					<li><a class="btn btn-outline-white text-white btn-md font-weight-bold" th:href="@{/login}">Área Staff</a></li>
           </ul>
   
           <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none light" data-toggle="collapse" data-target="#main-navbar">
@@ -255,7 +255,9 @@
 			<div class="row text-center">
 				<div class="col-md-12">
 					<h2 class="mb-2 text-white">Realize sua viagem dos sonhos. Contate-nos</h2>
-          <button class="btn btn-outline-white text-white btn-md font-weight-bold">Contato</button>					
+					<div class="d-flex justify-content-center"> 
+						<a th:href="@{/contatos}"><button class="btn btn-primary btn btn-outline-white text-white"> Contato </button></a>
+					</div>
 					
 				</div>
 			</div>
@@ -276,34 +278,31 @@
 							<ul class="list-unstyled social">
 								<li><a href="#"><span class="icon-twitter"></span></a></li>
 								<li><a href="#"><span class="icon-instagram"></span></a></li>
-								<li><a href="#"><span class="icon-facebook"></span></a></li>
-								
+								<li><a href="#"><span class="icon-facebook"></span></a></li>								
 							</ul>
 						</div>
 					</div>
 					<div class="col-md-6 col-lg-2 pl-lg-5">
 						<div class="widget">
-							<h3 class="heading">Pages</h3>
+							<h3 class="heading">Páginas</h3>
 							<ul class="links list-unstyled">
-								<li><a href="#">Destinos</a></li>
-								<li><a href="#">Promoções</a></li>
-								<li><a href="#">Contatos</a></li>
+								<li><a th:ref="@{/destinos}">Destinos</a></li>
+								<li><a th:ref="@{/promocoes}">Promoções</a></li>
+								<li><a th:ref="@{/contatos}">Contatos</a></li>								
 							</ul>
 						</div>
 					</div>
 					<div class="col-md-6 col-lg-2">
 						<div class="widget">
-							<h3 class="heading">Resources</h3>
-							<ul class="links list-unstyled">
-								<li><a href="#">Blog</a></li>
-								<li><a href="#">About</a></li>
-								<li><a href="#">Contact</a></li>
+							<h3 class="heading">Administrativo</h3>
+							<ul class="links list-unstyled">								
+								<li><a th:ref="@{/login}">Área Staff</a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-md-6 col-lg-4">
 						<div class="widget">
-							<h3 class="heading">Contact</h3>
+							<h3 class="heading">Contato</h3>
 							<ul class="list-unstyled quick-info links">
 								<li class="email"><a href="#">gtour@email.com.br</a></li>
 								<li class="phone"><a href="#">+55 (11) 3749-8202</a></li>
@@ -314,6 +313,21 @@
 				</div>
 			</div>
 		</footer>
+
+		<div class="inner dark">
+			<div class="container">
+				<div class="row text-center">
+					<div class="col-md-8 mb-3 mb-md-0 mx-auto">
+						<p>Desenvolvido por: Stéfany Marques <a href="mailto:stefany.marques06@gmail.com"><i class="bi bi-envelope-fill"></i> </a> 
+						<a href="https://github.com/Stephmarquess"><i class="bi bi-github"></i></a>
+						<p>Template por: <a href="https://untree.co" class="link-highlight">Untree.co</a> e <a href="https://themewagon.com" target="_blank" >ThemeWagon</a>
+						</p>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
 
   <div id="overlayer"></div>
   <div class="loader">

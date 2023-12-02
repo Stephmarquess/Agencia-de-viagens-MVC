@@ -23,6 +23,11 @@ public class ClienteServiceImpl implements ClienteServices {
 		return clienteRepository.findAll();
 	}
 
+	@Override
+	public List<Cliente> findClientebyName(String nomeCliente) {
+		return clienteRepository.findClientebyName(nomeCliente); 
+}
+	
 	
 	@Override
 	@Transactional(readOnly = true)

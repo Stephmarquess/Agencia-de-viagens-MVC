@@ -40,10 +40,6 @@
     <main class="container p-5">
 
         <p class="fs-1 fw-bolder">Área Destino </p>
-        <div class="col d-flex justify-content mb-5 gap-3">
-<input class="form-control" type="search" id="search" name="busca" placeholder="Buscar destino">
-        <button class="btn btn-primary" type="submit">Buscar</button>
-        </div>
         
         <div class="text-center mt-5 d-flex justify-content-center gap-5 row row-cols-md-3 row-cols-sm-1">
         
@@ -51,23 +47,61 @@
         <a th:href="@{/destino/listarDestino}" class="btn btn-primary text-white shadow col"><p class="fs-4"> <i class="bi bi-card-checklist"></i> Gerenciar Destino </p></a>
 
     </div>
+    
+<div class="mt-5 p-2 text-center">
+	<p class="fs-5 fw-bolder text-center ">Telefones úteis</p>
+	<div class="row row-cols-md-5 row-cols-1 mt-4 d-flex justify-content-center">
+	<span class="col d-flex flex-column justify-content-center mb-3"><strong> Seguro Viagem</strong> <br>(88) 9999-9999 </span>
+	<span class="col d-flex flex-column justify-content-center mb-3"><strong> Serviço de Transfer</strong><br>(88) 9999-9999 </span>
+	<span class="col d-flex flex-column justify-content-center mb-3"><strong> Gerencia</strong><br> (88) 9999-9999 </span> 
+	<span class="col d-flex flex-column justify-content-center mb-3"><strong> Central</strong> <br> (88) 9999-9999 </span>
+	</div>
+</div>
     </main>
 
-<footer class="container-fluid">
-	<div class="row row-cols-1 row-cols-md-3 g-3 p-3" style="background-color: #223649; color: #ffffff;">
-    <div class="col">
-      <img id="logo" th:src="@{/img/logo.png}" height="50px" width="50px" /><span id="logotxt"> <b>G</b>o<b>T</b>our</span>
-    </div>
-    <div id="social" class="col d-flex gap-5 justify-content-center">
-      <p class="fs-2"><i class="bi bi-instagram"></i></p>
-      <p class="fs-2"><i class="bi bi-facebook"></i></p>
-    </div>
-    <div id="local" class="col text-center">
-      <i class="bi bi-geo-alt"></i>
-      <p>Praça Roberto Gomes Pedrosa, s/n - Jardim Leonor - São Paulo - SP</p>
-  </div>
-  </div>
-</footer>
+	<footer class="site-footer text-center" style="background-color: #223649; color: #ffffff;">	
+		<div class="inner first">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-lg-4 mt-4">
+						<div class="widget">
+							<img id="logo" src="./img/logo.png" height="50px" width="50px"/><h3 class="heading">GoTour</h3>							
+						</div>
+						<div class="widget">
+							<ul class="list-unstyled social">
+								<li><a href="#"><span class="icon-twitter"></span></a></li>
+								<li><a href="#"><span class="icon-instagram"></span></a></li>
+								<li><a href="#"><span class="icon-facebook"></span></a></li>								
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-2 pl-lg-5 mt-4">
+						<div class="widget">
+							<h5 class="heading">Páginas</h5>
+							<ul class="links list-unstyled">
+								<li><a th:ref="@{/destinos}">Destinos</a></li>
+								<li><a th:ref="@{/promocoes}">Promoções</a></li>
+								<li><a th:ref="@{/contatos}">Contatos</a></li>							
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-2 mt-4">
+						<div class="widget">
+							<h5 class="heading">Principal</h5>
+							<ul class="links list-unstyled">								
+								<li><a th:ref="@{/home}">Home</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-4 text-center mt-4">
+						<div class="widget">
+					      <i class="bi bi-geo-alt"></i>
+					      <p>Praça Roberto Gomes Pedrosa, s/n - Jardim Leonor - São Paulo - SP</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
 <script type="text/javascript" th:src="@{/js/script.js}"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>

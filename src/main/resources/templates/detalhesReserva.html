@@ -23,13 +23,13 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="nav nav-underline justify-content-center gap-5 me-3 text-center" >
                     <li class="nav-item">
-                      <a class="nav-link text-white active fs-5" aria-current="page" href="#">Reserva</a>
+                      <a class="nav-link text-white active fs-6" aria-current="page" href="#">Reserva</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white fs-5" th:href="@{/cliente}">Cliente</a>
+                        <a class="nav-link text-white fs-6" th:href="@{/cliente}">Cliente</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link text-white fs-5" th:href="@{/destino}">Destino</a>
+                        <a class="nav-link text-white fs-6" th:href="@{/destino}">Destino</a>
                       </li>
                   </ul>
             </div>
@@ -43,18 +43,18 @@
 		<div class="container shadow" th:if="${reserva != null}"> 
 
   <ul class="list-group list-group-flush" th:each="reserva : ${reserva}">
-  <li class="list-group-item fs-5"><strong>Id:</strong> <span th:text="${reserva.id}"></span></li>
-  <li class="list-group-item fs-5"><strong>Cliente:</strong> <span th:text="${reserva.cliente.id}"></span></li>  
-  <li class="list-group-item fs-5"><strong>Destino:</strong> <span th:text="${reserva.destino.id}"></span></li>
-  <li class="list-group-item fs-5"><strong>Descrição da reserva:</strong> <span th:text="${reserva.descricaoReserva}"></span></li>
-  <li class="list-group-item fs-5"><strong>Data Ida:</strong> <span th:text="${reserva.dataIda}"> </li>
-  <li class="list-group-item fs-5"><strong>Data Volta:</strong> <span th:text="${reserva.dataVolta}"></li>
-  <li class="list-group-item fs-5"><strong>Valor:</strong> <span th:text="${reserva.valor}"></li>
-  <li class="list-group-item fs-5"><strong>Pagamento:</strong> <span th:text="${reserva.tipoPagamento}"></li>
+  <li class="list-group-item fs-6"><strong>Id<br></strong> <span th:text="${reserva.id}"></span></li>
+  <li class="list-group-item fs-6"><strong>Cliente<br></strong> <span th:text="${reserva.cliente.id}"></span></li>  
+  <li class="list-group-item fs-6"><strong>Destino<br></strong> <span th:text="${reserva.destino.id}"></span></li>
+  <li class="list-group-item fs-6"><strong>Descrição da reserva<br></strong> <span th:text="${reserva.descricaoReserva}"></span></li>
+  <li class="list-group-item fs-6"><strong>Data Ida<br></strong> <span th:text="${reserva.dataIda}"> </li>
+  <li class="list-group-item fs-6"><strong>Data Volta<br></strong> <span th:text="${reserva.dataVolta}"></li>
+  <li class="list-group-item fs-6"><strong>Valor<br></strong> <span th:text="${reserva.valor}"></li>
+  <li class="list-group-item fs-6"><strong>Pagamento<br></strong> <span th:text="${reserva.tipoPagamento}"></li>
   
 </ul>	
 		</div>   
-   <div class="d-flex justify-content-center mt-5">    
+   <div class="d-flex justify-content-center mt-5 mb-5">    
     <a class="btn btn-primary"th:href="@{/reserva/listarReserva}"><i class="bi bi-arrow-left"></i> Voltar </a>
     </div>
     

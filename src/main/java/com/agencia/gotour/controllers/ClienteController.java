@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
 import com.agencia.gotour.model.Cliente;
 import com.agencia.gotour.model.Reserva;
+
 import com.agencia.gotour.repositories.ReservaRepository;
 import com.agencia.gotour.services.ClienteServices;
 
@@ -61,6 +63,19 @@ import com.agencia.gotour.services.ClienteServices;
 		model.addAttribute("reservas", reservas);
 		
 		return "detalhesClientes";
+		}
+		
+		// BUSCA POR NOME
+		@GetMapping("/buscaCliente/{nomeCliente}")		
+		public String buscarClientePorNome (@PathVariable("nomeCliente") String nomeCliente, Model model) {										
+			List<Cliente> buscaCliente = clienteServices.findClientebyName(nomeCliente); 
+
+			model.addAttribute("cliente", buscaCliente);
+			
+		       
+			System.out.print(buscaCliente);
+			return "buscaCliente";
+		       
 		}
 
 		@GetMapping("/editarCliente/{id}")

@@ -44,8 +44,7 @@ import jakarta.persistence.Table;
 	    @JoinColumn(name = "idCliente")
 	    private List<Reserva> reservas;
 		
-	    
-	    		
+	       		
 
 		public Cliente(Long id, String nomeCliente, String cpf, String email, String endereco,
 				String telefone) {
