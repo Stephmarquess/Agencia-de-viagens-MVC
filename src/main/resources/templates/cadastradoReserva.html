@@ -38,15 +38,18 @@
 </header>
 
     <main class="container">
-        <p class="fs-1 text-center mt-5"> Dados da Reserva </p>
+        <p class="fs-1 text-center mt-5"> Reserva cadastrada com sucesso! </p>
         <div class="table-responsive">
  <table class="table table-striped mt-3">
                 <thead class="thead-dark">
               <tr>
   
                   <th>ID</th>
-                  <th>Nome</th>
                   <th>Descrição</th>
+                  <th>Data Ida</th>
+                  <th>Data Volta</th>
+                  <th>Valor</th>
+                  <th>Pagamento</th>
                   <th class="text-center">Opções</th>                  
               </tr>
           </thead>
@@ -56,6 +59,9 @@
                   <td th:text="${reserva.id}"></td>
                   <td th:text="${reserva.descricaoReserva}"></td>
                   <td th:text="${reserva.dataIda}"></td>                  
+                  <td th:text="${reserva.dataVolta}"></td>
+                  <td th:text="${reserva.valor}"></td>
+                  <td th:text="${reserva.tipoPagamento}"></td>
                   
             <td class="d-flex justify-content-center gap-3">				
               <a th:href="@{/reserva/editarReserva/{id}(id=${reserva.id})}"><i class="bi bi-pencil-square"></i>  </a>
@@ -67,27 +73,66 @@
             </div> 
           </table> 
        
-        <div class="mt-5 d-flex justify-content-center gap-5">
+        <div class="mt-5 d-flex justify-content-center gap-5 mb-5">
        	<a class="btn btn-primary"th:href="@{/reserva}">Área Reserva </a>       
        	</div>  
     
     </main>
 
-<footer class="container-fluid">
-	<div class="row row-cols-1 row-cols-md-3 g-3 p-3" style="background-color: #223649; color: #ffffff;">
-    <div class="col">
-      <img id="logo" th:src="@{/img/logo.png}" height="50px" width="50px" /><span id="logotxt"> <b>G</b>o<b>T</b>our</span>
-    </div>
-    <div id="social" class="col d-flex gap-5 justify-content-center">
-      <p class="fs-2"><i class="bi bi-instagram"></i></p>
-      <p class="fs-2"><i class="bi bi-facebook"></i></p>
-    </div>
-    <div id="local" class="col text-center">
-      <i class="bi bi-geo-alt"></i>
-      <p>Praça Roberto Gomes Pedrosa, s/n - Jardim Leonor - São Paulo - SP</p>
-  </div>
-  </div>
-</footer>
+<div class="mt-5 p-2 text-center">
+	<p class="fs-5 fw-bolder text-center ">Telefones úteis</p>
+	<div class="row row-cols-md-5 row-cols-1 mt-4 d-flex justify-content-center">
+	<span class="col d-flex flex-column justify-content-center mb-3"><strong> Seguro Viagem</strong> <br>(88) 9999-9999 </span>
+	<span class="col d-flex flex-column justify-content-center mb-3"><strong> Serviço de Transfer</strong><br>(88) 9999-9999 </span>
+	<span class="col d-flex flex-column justify-content-center mb-3"><strong> Gerencia</strong><br> (88) 9999-9999 </span> 
+	<span class="col d-flex flex-column justify-content-center mb-3"><strong> Central</strong> <br> (88) 9999-9999 </span>
+	</div>
+</div>
+    </main>
+
+	<footer class="site-footer text-center" style="background-color: #223649; color: #ffffff;">	
+		<div class="inner first">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-lg-4 mt-4">
+						<div class="widget">
+							<img id="logo" src="./img/logo.png" height="50px" width="50px"/><h3 class="heading">GoTour</h3>							
+						</div>
+						<div class="widget">
+							<ul class="list-unstyled social">
+								<li><a href="#"><span class="icon-twitter"></span></a></li>
+								<li><a href="#"><span class="icon-instagram"></span></a></li>
+								<li><a href="#"><span class="icon-facebook"></span></a></li>								
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-2 pl-lg-5 mt-4">
+						<div class="widget">
+							<h5 class="heading">Páginas</h5>
+							<ul class="links list-unstyled">
+								<li><a th:ref="@{/destinos}">Destinos</a></li>
+								<li><a th:ref="@{/promocoes}">Promoções</a></li>
+								<li><a th:ref="@{/contatos}">Contatos</a></li>							
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-2 mt-4">
+						<div class="widget">
+							<h5 class="heading">Principal</h5>
+							<ul class="links list-unstyled">								
+								<li><a th:ref="@{/home}">Home</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-4 text-center mt-4">
+						<div class="widget">
+					      <i class="bi bi-geo-alt"></i>
+					      <p>Praça Roberto Gomes Pedrosa, s/n - Jardim Leonor - São Paulo - SP</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
 </body>
 
 </html>
