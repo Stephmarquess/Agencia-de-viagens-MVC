@@ -2,10 +2,6 @@
 
 Projeto modelado em MVC com Java Web utilizando Spring Boot e MySQL. 
 
-<div align="center">
-<img src="..." />
-</div>
-
 <p> O projeto "GoTour", agência de viagens fictícia, foi desenvolvido para o Bootcamp FullStack da RECODE PRO, turma 2023.  
 </p>
     
@@ -47,9 +43,9 @@ Projeto modelado em MVC com Java Web utilizando Spring Boot e MySQL.
 
 <div align="center">
 <strong> Modelo Conceitual</strong><br>
-<img src="....." /> <br>
+<img src="https://raw.githubusercontent.com/Stephmarquess/RECODE-PRO/main/BANCO%20DE%20DADOS/MODELOS%20DO%20BANCO/Modelo%20Conceitual%20-%20GoTour.png" /> <br>
 <strong> Modelo Lógico </strong> <br>
-<img src="..." /><br>
+<img src="https://raw.githubusercontent.com/Stephmarquess/Agencia-de-viagens/main/BANCO%20DE%20DADOS/MODELOS%20DO%20BANCO/Modelo%20L%C3%B3gico%20-%20GoTour.png" /><br>
 </div>
 
 <strong> E-mail: </strong> stefany.marques06@gmail.com
