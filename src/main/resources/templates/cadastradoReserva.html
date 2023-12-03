@@ -64,8 +64,8 @@
                   <td th:text="${reserva.tipoPagamento}"></td>
                   
             <td class="d-flex justify-content-center gap-3">				
-              <a th:href="@{/reserva/editarReserva/{id}(id=${reserva.id})}"><i class="bi bi-pencil-square"></i>  </a>
-              <a th:href="@{/reserva/deletarReserva/{id}(id=${reserva.id})}"> <i class="bi bi-trash3"></i> </a>
+              <a th:href="@{/reserva/editarReserva/{id}(id=${reserva.id})}"><button class="btn btn-primary"><i class="bi bi-pencil-square"></i></button></a>
+              <a th:href="@{/reserva/deletarReserva/{id}(id=${reserva.id})}"><button class="btn btn-danger"><i class="bi bi-trash3"></i></button> </a>
           </td>
 
               </tr>
@@ -79,24 +79,13 @@
     
     </main>
 
-<div class="mt-5 p-2 text-center">
-	<p class="fs-5 fw-bolder text-center ">Telefones úteis</p>
-	<div class="row row-cols-md-5 row-cols-1 mt-4 d-flex justify-content-center">
-	<span class="col d-flex flex-column justify-content-center mb-3"><strong> Seguro Viagem</strong> <br>(88) 9999-9999 </span>
-	<span class="col d-flex flex-column justify-content-center mb-3"><strong> Serviço de Transfer</strong><br>(88) 9999-9999 </span>
-	<span class="col d-flex flex-column justify-content-center mb-3"><strong> Gerencia</strong><br> (88) 9999-9999 </span> 
-	<span class="col d-flex flex-column justify-content-center mb-3"><strong> Central</strong> <br> (88) 9999-9999 </span>
-	</div>
-</div>
-    </main>
-
-	<footer class="site-footer text-center" style="background-color: #223649; color: #ffffff;">	
+	<footer class="site-footer text-center" style="background-color: #223649; color: #ffffff; height: 70vh;">	
 		<div class="inner first">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6 col-lg-4 mt-4">
 						<div class="widget">
-							<img id="logo" src="./img/logo.png" height="50px" width="50px"/><h3 class="heading">GoTour</h3>							
+							<img id="logo" th:src="@{/img/logo.png}" height="50px" width="50px"/><h3 class="heading">GoTour</h3>							
 						</div>
 						<div class="widget">
 							<ul class="list-unstyled social">

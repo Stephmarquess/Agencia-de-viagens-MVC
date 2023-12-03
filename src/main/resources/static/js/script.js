@@ -8,15 +8,30 @@ function cpfMask() {
     }
 }
 
-function updateTime() {
-    const timeElement = document.getElementById('time');
-    const now = new Date();
-    const hours = now.getHours().toString().padStart(2, '0');
-    const minutes = now.getMinutes().toString().padStart(2, '0');
-    const seconds = now.getSeconds().toString().padStart(2, '0');
-    const timeString = `${hours}:${minutes}:${seconds}`;
-    timeElement.textContent = timeString;
-}
+function confirmaDestino() {
+        
+var confirma = confirm("Ao deletar o destino todas as reservas a ele associadas serão excluídas. Você tem certeza que deseja excluir este destino?");
 
-setInterval(updateTime, 1000); // Atualiza a cada segundo
-updateTime();
+if (confirma) {
+} else { alert("Deleção cancelada");
+	}
+ }
+ 
+ function confirmaCliente() {
+        
+var confirma = confirm("Ao deletar o Cliente todas as reservas a ele associadas serão excluídas. Você tem certeza que deseja excluir este cliente?");
+
+if (confirma) {
+} else { alert("Deleção cancelada");
+	}
+ }
+ 
+ 
+ function confirmaReserva() {
+        
+var confirma = confirm("Você tem certeza que deseja excluir esta Reserva?");
+
+if (confirma) {
+} else { alert("Deleção cancelada");
+	}
+ }

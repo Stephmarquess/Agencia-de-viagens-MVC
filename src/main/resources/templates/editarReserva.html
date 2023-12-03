@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-<link th:href="@{/css/index.css}" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
   <title>GoTour - Área Reserva </title>
 </head>
@@ -71,24 +70,27 @@
                 <label for="descricaoReserva" class="form-label fs-5"> Descrição da Reserva </label>
                 <input class="form-control mt-1" type="text" id="descricaoReserva" th:field="*{descricaoReserva}">
             </div>
-            <div class="mt-3">
+            <div class="row row-cols-sm-1  row-cols-md-2">
+            <div class="mt-3 col">
                 <label for="dataIda" class="form-label fs-5"> Data Ida </label>
                 <input class="form-control mt-1" type="text" id="dataIda" th:field="*{dataIda}">
             </div>        
-            <div class="mt-3">
+            <div class="mt-3 col">
                 <label for="dataVolta" class="form-label fs-5"> Data Volta </label>
                 <input class="form-control mt-1" type="text" id="dataVolta" th:field="*{dataVolta}" >
             </div>                
-		     <div class="mt-3">
+            </div>
+            <div class="row row-cols-sm-1  row-cols-md-2">
+		     <div class="mt-3 col">
                 <label for="valor" class="form-label fs-5"> Valor </label>
                 <input class="form-control mt-1" type="number" id="valor" th:field="*{valor}">
             </div>                
 
-            <div class="mt-3">
+            <div class="mt-3 col">
                 <label for="tipoPagamento" class="form-label fs-5"> Pagamento </label>
                 <input class="form-control mt-1" type="text" id="tipoPagamento" th:field="*{tipoPagamento}">
             </div>                
-
+			</div>
             <div class="d-flex justify-content-center mt-5">
                 <button class="btn btn-primary" type="submit"> Salvar </button>
             </div>
@@ -100,15 +102,6 @@
         </div>
         
         </main>
-<div class="mt-5 p-2 text-center">
-	<p class="fs-5 fw-bolder text-center ">Telefones úteis</p>
-	<div class="row row-cols-md-5 row-cols-1 mt-4 d-flex justify-content-center">
-	<span class="col d-flex flex-column justify-content-center mb-3"><strong> Seguro Viagem</strong> <br>(88) 9999-9999 </span>
-	<span class="col d-flex flex-column justify-content-center mb-3"><strong> Serviço de Transfer</strong><br>(88) 9999-9999 </span>
-	<span class="col d-flex flex-column justify-content-center mb-3"><strong> Gerencia</strong><br> (88) 9999-9999 </span> 
-	<span class="col d-flex flex-column justify-content-center mb-3"><strong> Central</strong> <br> (88) 9999-9999 </span>
-	</div>
-</div>
     </main>
 
 	<footer class="site-footer text-center" style="background-color: #223649; color: #ffffff;">	

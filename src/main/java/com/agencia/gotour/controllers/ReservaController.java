@@ -61,7 +61,7 @@ import com.agencia.gotour.services.ReservaServices;
 		}
 		
 		@GetMapping("/listarReserva")
-		public String editarReservaform(Model model) {			
+		public String listarReserva(Model model) {			
 			List<Reserva> listaReservas = reservaServices.buscarReservas();
 			model.addAttribute("reservas", listaReservas);			
 			return "listarReserva";

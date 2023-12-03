@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link th:href="@{/css/index.css}" rel="stylesheet" />
+      <link th:href="@{/css/index.css}" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
   <title>GoTour - Área Reserva </title>
 </head>
@@ -51,13 +51,18 @@
                   <th> Descrição</th>
                   <th> Data </th>
                   <th> Ações </th>
-                  
+                  <div th:if="${#lists.isEmpty(reservas)}">
+    	<p class="fs-5 text-center fw-bolder"> Não há reservas cadastradas.</p>
+    	<a class="d-flex justify-content-center text-center gap-1" th:href="@{/reserva/cadastro}"><i class="bi bi-person-plus"></i> Cadastrar Reserva </a>
+                  </div> 
                   
               </tr>
           </thead>
-          <tbody>	      
+          <tbody>      
+		
+		</div>
               <tr th:each="reservas: ${reservas}">
-                  
+               
                   <td th:text="${reservas.id}"></td>
                   <td th:text="${reservas.cliente.nomeCliente}"></td>
                   <td th:text="${reservas.destino.nomeDestino}"></td>
@@ -67,9 +72,9 @@
                 
                   
             <td class="text-center d-flex gap-2">
-			  <a th:href="@{/reserva/detalharReserva/{id}(id=${reservas.id})}"><i class="bi bi-search"></i> </a>
-              <a th:href="@{/reserva/editarReserva/{id}(id=${reservas.id})}"><i class="bi bi-pencil-square"></i>  </a>
-              <a th:href="@{/reserva/deletarReserva/{id}(id=${reservas.id})}"> <i class="bi bi-trash3"></i> </a>
+			  <a th:href="@{/reserva/detalharReserva/{id}(id=${reservas.id})}"><button class="btn btn-primary"><i class="bi bi-search"></i></button> </a>
+              <a th:href="@{/reserva/editarReserva/{id}(id=${reservas.id})}"><button class="btn btn-primary"><i class="bi bi-pencil-square"></i> </button> </a>
+              <a th:href="@{/reserva/deletarReserva/{id}(id=${reservas.id})}"> <button class="btn btn-danger" onclick="confirmaReserva()"> <i class="bi bi-trash3"></i></button> </a>
           </td>
               </tr>    
 
@@ -83,18 +88,7 @@
     
     </main>
 
-<div class="mt-5 p-2 text-center">
-	<p class="fs-5 fw-bolder text-center ">Telefones úteis</p>
-	<div class="row row-cols-md-5 row-cols-1 mt-4 d-flex justify-content-center">
-	<span class="col d-flex flex-column justify-content-center mb-3"><strong> Seguro Viagem</strong> <br>(88) 9999-9999 </span>
-	<span class="col d-flex flex-column justify-content-center mb-3"><strong> Serviço de Transfer</strong><br>(88) 9999-9999 </span>
-	<span class="col d-flex flex-column justify-content-center mb-3"><strong> Gerencia</strong><br> (88) 9999-9999 </span> 
-	<span class="col d-flex flex-column justify-content-center mb-3"><strong> Central</strong> <br> (88) 9999-9999 </span>
-	</div>
-</div>
-    </main>
-
-	<footer class="site-footer text-center" style="background-color: #223649; color: #ffffff;">	
+	<footer class="site-footer text-center" style="background-color: #223649; color: #ffffff; height: 70vh;">	
 		<div class="inner first">
 			<div class="container">
 				<div class="row">
@@ -139,6 +133,7 @@
 		</footer>
 </body>
 
+<script type="text/javascript" th:src="@{/js/script.js}"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
     crossorigin="anonymous"></script>
