@@ -73,11 +73,10 @@
               <tr>
   
                   <th>ID</th>
+                  <th>Cliente</th>
                   <th>Descrição</th>
                   <th>Data Ida</th>
-                  <th>Data Volta</th>
-                  <th>Valor</th>
-                  <th>Tipo Pagamento</th>
+
                                     
                                      
               </tr>
@@ -86,14 +85,13 @@
               <tr th:each="reserva: ${reserva}">
                   
                   <td th:text="${reserva.id}"></td>
+                  <td th:text="${reserva.cliente.nomeCliente}"></td>
                   <td th:text="${reserva.descricaoReserva}"></td>
-                  <td th:text="${reserva.dataIda}"></td>
-                  <td th:text="${reserva.dataVolta}"></td>
-                  <td th:text="${reserva.valor}"></td>
-                  <td th:text="${reserva.tipoPagamento}"></td>
-                  
+                  <td th:text="${reserva.dataIda}"></td>           
                                     
-
+            <td class="d-flex justify-content-center gap-3">
+              <a th:href="@{/reserva/detalharReserva/{id}(id=${reserva.id})}"><button class="btn btn-primary"><i class="bi bi-search"></i></button> </a>
+            </td>
               </tr>
               </tbody>
             </div> 
