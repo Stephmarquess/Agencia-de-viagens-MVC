@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.agencia.gotour.model.Destino;
+import com.agencia.gotour.model.Reserva;
+import com.agencia.gotour.repositories.ReservaRepository;
 import com.agencia.gotour.services.DestinoServices;
 
 
@@ -21,6 +23,8 @@ public class DestinoController {
 	
 	@Autowired
 	private DestinoServices destinoServices;
+	@Autowired
+	private ReservaRepository reservaRepository;
 	
 
 	@GetMapping
@@ -68,8 +72,20 @@ public class DestinoController {
 	
 
 	@GetMapping("/deletarDestino/{id}")
-	public String deletarDestino(@PathVariable Long id) {
-		destinoServices.deletarDestino(id);
+	public String deletarDestino(@PathVariable Long id, Model model) {
+		
+		Destino localizarDestino = destinoServices.buscarDestinoporId(id); 
+		List<Reserva> localizarReserva = reservaRepository.findByDestinoId(id);			
+		model.addAttribute("destino", localizarDestino);
+		model.addAttribute("reserva", localizarReserva);
+		
+		return "confirmarExclusaoDestino";
+		
+	}
+	
+	@GetMapping("/deletadoDestino/{id}")
+	public String deletadoDestino(@PathVariable Long id) {
+		destinoServices.deletarDestino(id);		
 		return "deletadoDestino";
 	}
 

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.agencia.gotour.model.Cliente;
 import com.agencia.gotour.model.Destino;
 import com.agencia.gotour.model.Reserva;
+import com.agencia.gotour.repositories.ReservaRepository;
 import com.agencia.gotour.services.ClienteServices;
 import com.agencia.gotour.services.DestinoServices;
 import com.agencia.gotour.services.ReservaServices;
@@ -30,6 +31,8 @@ import com.agencia.gotour.services.ReservaServices;
 		private ClienteServices clienteServices;
 		@Autowired
 		private DestinoServices destinoServices;
+		@Autowired
+		private ReservaRepository reservaRepository;
 
 
 		@GetMapping
@@ -97,10 +100,24 @@ import com.agencia.gotour.services.ReservaServices;
 		
 
 		@GetMapping("/deletarReserva/{id}")
-		public String deletarReserva(@PathVariable Long id) {
+		public String deletarReserva(@PathVariable Long id, Model model) {
+			
+			Reserva localizarReserva = reservaServices.buscarReservaporId(id);
+			List<Reserva> localizarCliente = reservaRepository.findByClienteId(id);			
+			model.addAttribute("reserva", localizarReserva);
+			model.addAttribute("cliente", localizarCliente);
+			
+			return "confirmarExclusaoReserva";
+			
+		}
+		
+		@GetMapping("/deletadoReserva/{id}")
+		public String deletadoCliente(@PathVariable Long id) {
 			reservaServices.deletarReserva(id);
+			
 			return "deletadaReserva";
 		}
+	
 	
 	
 	}

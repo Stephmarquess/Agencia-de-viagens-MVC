@@ -24,12 +24,6 @@ public class ClienteServiceImpl implements ClienteServices {
 	}
 
 	@Override
-	public List<Cliente> findClientebyName(String nomeCliente) {
-		return clienteRepository.findClientebyName(nomeCliente); 
-}
-	
-	
-	@Override
 	@Transactional(readOnly = true)
 	public Cliente buscarClienteporId(Long id) {
 		return clienteRepository.findById(id).orElse(null);
