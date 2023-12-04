@@ -12,5 +12,7 @@ import com.agencia.gotour.model.Reserva;
 public interface ReservaRepository extends JpaRepository<Reserva, Long> {
 
 	List<Reserva> findByClienteId(Long idCliente);
+
+	List<Reserva> findByDestinoId(Long idReserva);
 	
 }

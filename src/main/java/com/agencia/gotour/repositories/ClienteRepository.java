@@ -14,7 +14,4 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 
 	List<Cliente> findByReservasId(Long idReserva);
 	
-	@Query("SELECT c FROM Cliente c WHERE c.nomeCliente = %?1%")
-	List<Cliente> findClientebyName(String nomeCliente);
-	
 }

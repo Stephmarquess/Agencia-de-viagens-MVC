@@ -11,10 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
 import com.agencia.gotour.model.Cliente;
 import com.agencia.gotour.model.Reserva;
-
 import com.agencia.gotour.repositories.ReservaRepository;
 import com.agencia.gotour.services.ClienteServices;
 
@@ -43,7 +41,7 @@ import com.agencia.gotour.services.ClienteServices;
 		@PostMapping("/cadastrar")		
 		public String cadastrarCliente(@ModelAttribute("cliente") Cliente cliente) {
 		clienteServices.salvarCliente(cliente);
-		return "SucessoCadastroCliente";
+		return "cadastradoCliente";
 		}			
 		
 
@@ -64,19 +62,7 @@ import com.agencia.gotour.services.ClienteServices;
 		
 		return "detalhesClientes";
 		}
-		
-		// BUSCA POR NOME
-		@GetMapping("/buscaCliente/{nomeCliente}")		
-		public String buscarClientePorNome (@PathVariable("nomeCliente") String nomeCliente, Model model) {										
-			List<Cliente> buscaCliente = clienteServices.findClientebyName(nomeCliente); 
-
-			model.addAttribute("cliente", buscaCliente);
-			
-		       
-			System.out.print(buscaCliente);
-			return "buscaCliente";
-		       
-		}
+	
 
 		@GetMapping("/editarCliente/{id}")
 		public String formEditarCliente(@PathVariable Long id, Model model) {
@@ -93,11 +79,24 @@ import com.agencia.gotour.services.ClienteServices;
 		
 
 		@GetMapping("/deletarCliente/{id}")
-		public String deletarCliente(@PathVariable Long id) {
+		public String deletarCliente(@PathVariable Long id, Model model) {
+			
+			Cliente localizarCliente = clienteServices.buscarClienteporId(id);
+			List<Reserva> localizarReserva = reservaRepository.findByClienteId(id);			
+			model.addAttribute("cliente", localizarCliente);
+			model.addAttribute("reserva", localizarReserva);
+			
+			return "confirmarExclusaoCliente";
+			
+		}
+		
+		@GetMapping("/deletadoCliente/{id}")
+		public String deletadoCliente(@PathVariable Long id) {
 			clienteServices.deletarCliente(id);
 			return "deletadoCliente";
 		}
 	
+		
 	
 
 }
