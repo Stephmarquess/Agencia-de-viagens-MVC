@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.agencia.gotour.model.Cliente;
 import com.agencia.gotour.model.Destino;
 import com.agencia.gotour.model.Reserva;
 import com.agencia.gotour.repositories.ReservaRepository;
@@ -46,7 +47,7 @@ public class DestinoController {
 	@PostMapping("/cadastrar")
 	public String cadastrarDestino(@ModelAttribute("destino") Destino destino) {
 	destinoServices.salvarDestino(destino);						
-	return "listarDestino";
+	return "cadastradoDestino";
 	}
 	
 	
@@ -56,7 +57,7 @@ public class DestinoController {
 		model.addAttribute("destino", destinos);
 		return "listarDestino";
 	}
-
+	
 	@GetMapping("/editarDestino/{id}")
 	public String editarDestinoform(@PathVariable Long id, Model model) {
 		Destino destino = destinoServices.buscarDestinoporId(id);

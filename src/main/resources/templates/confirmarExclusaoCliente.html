@@ -71,9 +71,14 @@
             </div> 
           </table> 
           
-         <p class="fw-bolder"> Reservas associadas </p>
+         
                   <div class="table-responsive ">
+					  <p class="fw-bolder text-center mt-3 fs-5"> Reservas associadas </p>
         <table class="table table-striped mt-1">
+			 <div th:if="${#lists.isEmpty(reservas)}">
+    	<p class="fs-6 text-center "> Não há reservas associadas a esse cliente</p>
+    	   
+        </div>
                 <thead class="thead-dark">
               <tr>
   
@@ -97,7 +102,9 @@
                   <td th:text="${reserva.valor}"></td>
                   <td th:text="${reserva.tipoPagamento}"></td>
                   
-                                    
+              <td class="d-flex justify-content-center gap-3">			  
+			  <a th:href="@{/reserva/detalharReserva/{id}(id=${reserva.id})}"><button class="btn btn-primary"><i class="bi bi-search"></i></button> </a>
+               
 
               </tr>
               </tbody>
