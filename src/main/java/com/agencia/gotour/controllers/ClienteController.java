@@ -16,87 +16,79 @@ import com.agencia.gotour.model.Reserva;
 import com.agencia.gotour.repositories.ReservaRepository;
 import com.agencia.gotour.services.ClienteServices;
 
-	@Controller
-	@RequestMapping("/cliente")
-	public class ClienteController {
+@Controller
+@RequestMapping("/cliente")
+public class ClienteController {
 
-		@Autowired
-		private ClienteServices clienteServices;
-		@Autowired
-		private ReservaRepository reservaRepository;
-		
-		@GetMapping
-		public String areaCliente() {			
-			return "areaCliente";
-			}
+	@Autowired
+	private ClienteServices clienteServices;
+	@Autowired
+	private ReservaRepository reservaRepository;
 
-		@GetMapping("/cadastro")
-		public String cadastroClienteform(Model model) {
+	@GetMapping
+	public String areaCliente() {
+		return "areaCliente";
+	}
+
+	@GetMapping("/cadastro")
+	public String cadastroClienteform(Model model) {
 		Cliente cliente = new Cliente();
 		model.addAttribute("cliente", cliente);
 		return "cadastroCliente";
-		}
-			
+	}
 
-		@PostMapping("/cadastrar")		
-		public String cadastrarCliente(@ModelAttribute("cliente") Cliente cliente) {
+	@PostMapping("/cadastrar")
+	public String cadastrarCliente(@ModelAttribute("cliente") Cliente cliente) {
 		clienteServices.salvarCliente(cliente);
 		return "cadastradoCliente";
-		}			
-		
+	}
 
-		@GetMapping("/listarCliente")
-		public String areaCliente (Model model) {
-		List<Cliente> listarClientes =  clienteServices.buscarClientes();		
+	@GetMapping("/listarCliente")
+	public String areaCliente(Model model) {
+		List<Cliente> listarClientes = clienteServices.buscarClientes();
 		model.addAttribute("clientes", listarClientes);
 		return "listarCliente";
-		}
-		
-		@GetMapping("/detalharCliente/{id}")
-		public String detalharCliente (@PathVariable (value= "id") Long id, Model model) {
-		Cliente clienteLocalizado =  clienteServices.buscarClienteporId(id);		
+	}
+
+	@GetMapping("/detalharCliente/{id}")
+	public String detalharCliente(@PathVariable(value = "id") Long id, Model model) {
+		Cliente clienteLocalizado = clienteServices.buscarClienteporId(id);
 		model.addAttribute("cliente", clienteLocalizado);
-		
-		List<Reserva> reservas = reservaRepository.findByClienteId(id);	
+		List<Reserva> reservas = reservaRepository.findByClienteId(id);
 		model.addAttribute("reservas", reservas);
-		
+
 		return "detalhesClientes";
-		}
-	
+	}
 
-		@GetMapping("/editarCliente/{id}")
-		public String formEditarCliente(@PathVariable Long id, Model model) {
-			Cliente cliente = clienteServices.buscarClienteporId(id);
-			model.addAttribute("cliente", cliente);
-			return "editarCliente";
-		}
-		
-		@PostMapping("/editarCliente/{id}")
-		public String editarCliente(@PathVariable Long id, @ModelAttribute("cliente") Cliente cliente) {		
-			clienteServices.atualizarCliente(id, cliente);			
-			return "detalhesClientes";
-		}
-		
+	@GetMapping("/editarCliente/{id}")
+	public String formEditarCliente(@PathVariable Long id, Model model) {
+		Cliente cliente = clienteServices.buscarClienteporId(id);
+		model.addAttribute("cliente", cliente);
+		return "editarCliente";
+	}
 
-		@GetMapping("/deletarCliente/{id}")
-		public String deletarCliente(@PathVariable Long id, Model model) {
-			
-			Cliente localizarCliente = clienteServices.buscarClienteporId(id);
-			List<Reserva> localizarReserva = reservaRepository.findByClienteId(id);			
-			model.addAttribute("cliente", localizarCliente);
-			model.addAttribute("reserva", localizarReserva);
-			
-			return "confirmarExclusaoCliente";
-			
-		}
-		
-		@GetMapping("/deletadoCliente/{id}")
-		public String deletadoCliente(@PathVariable Long id) {
-			clienteServices.deletarCliente(id);
-			return "deletadoCliente";
-		}
-	
-		
-	
+	@PostMapping("/editarCliente/{id}")
+	public String editarCliente(@PathVariable Long id, @ModelAttribute("cliente") Cliente cliente) {
+		clienteServices.atualizarCliente(id, cliente);
+		return "detalhesClientes";
+	}
+
+	@GetMapping("/deletarCliente/{id}")
+	public String deletarCliente(@PathVariable Long id, Model model) {
+
+		Cliente localizarCliente = clienteServices.buscarClienteporId(id);
+		List<Reserva> localizarReserva = reservaRepository.findByClienteId(id);
+		model.addAttribute("cliente", localizarCliente);
+		model.addAttribute("reserva", localizarReserva);
+
+		return "confirmarExclusaoCliente";
+
+	}
+
+	@GetMapping("/deletadoCliente/{id}")
+	public String deletadoCliente(@PathVariable Long id) {
+		clienteServices.deletarCliente(id);
+		return "deletadoCliente";
+	}
 
 }
