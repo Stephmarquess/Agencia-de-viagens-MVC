@@ -45,5 +45,5 @@ Projeto modelado em MVC com Java Web utilizando Spring Boot e MySQL.
 </div>
 
 <h2> Contatos </h2>
-<strong> E-mail: </strong> stefany.marques06@gmail.com
+<strong> E-mail: </strong> stefany.marques06@gmail.com<br>
 <strong>LinkedIn:</strong> https://www.linkedin.com/in/st%C3%A9fany-marques 
