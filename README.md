@@ -18,8 +18,10 @@ Projeto modelado em MVC com Java Web utilizando Spring Boot e MySQL.
 
 <h2> Próximas atualizações </h2>
 
+  <li> Adicionar Spring Security </li>
   <li> Implementar a perspectiva do "Cliente" com criação de perfil, visualizacao dos dados, atualização, cadastro de reserva e deleção dos dados.</li>  
   <li> Adicionar área de Login para Cliente e Staff. </li>
+  
 </ol>
 
 <h2>Tecnologias utilizadas </h2>
@@ -33,12 +35,6 @@ Projeto modelado em MVC com Java Web utilizando Spring Boot e MySQL.
 <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Spring_Framework_Logo_2018.svg" width="150" height="50" /> 
 </div>
 
-<h2> Instruções para execução do projeto </h2>
-
-<ol> 
-    <li> <strong> Para executar o Banco de dados: </strong> utilizar o comando <strong> CREATE DATABASE agenciaGoTour; </strong> </li>
-</ol>
-
 <h3> Modelos do banco </h3>
 
 <div align="center">
@@ -48,8 +44,6 @@ Projeto modelado em MVC com Java Web utilizando Spring Boot e MySQL.
 <img src="https://raw.githubusercontent.com/Stephmarquess/Agencia-de-viagens/main/BANCO%20DE%20DADOS/MODELOS%20DO%20BANCO/Modelo%20L%C3%B3gico%20-%20GoTour.png" /><br>
 </div>
 
+<h2> Contatos </h2>
 <strong> E-mail: </strong> stefany.marques06@gmail.com
-
-<div align="center">
-    <h2> Demonstração do Projeto </h2>
-</div>
+<strong>LinkedIn:</strong> https://www.linkedin.com/in/st%C3%A9fany-marques 
